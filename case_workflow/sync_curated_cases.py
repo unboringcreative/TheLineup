@@ -12,12 +12,13 @@ UNITY_CASES_DIR = PROJECT_ROOT / "Assets" / "Scripts" / "Cases"
 IMPORT_ROOT = PROJECT_ROOT / "Assets" / "GeneratedCases" / "to_import"
 LIBRARY_ASSET = UNITY_CASES_DIR / "CaseLibrary_Main.asset"
 
-KEEP_CASE_IDS = ("CASE_009", "CASE_010", "CASE_011", "CASE_012")
+KEEP_CASE_IDS = ("CASE_009", "CASE_010", "CASE_011", "CASE_012", "CASE_013")
 CASE_JSON_FILES = {
     "CASE_009": CASES_JSON_DIR / "case_009_the_neon_receipt.json",
     "CASE_010": CASES_JSON_DIR / "case_010_the_ghost_docket.json",
     "CASE_011": CASES_JSON_DIR / "case_011_the_sable_cartridge.json",
     "CASE_012": CASES_JSON_DIR / "case_012_the_ivory_switch.json",
+    "CASE_013": CASES_JSON_DIR / "case_013_the_amber_turnstile.json",
 }
 FOLDER_REMAP = {
     "CASE_009": "CASE_006",

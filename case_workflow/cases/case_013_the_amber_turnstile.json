@@ -1,0 +1,179 @@
+{
+  "caseId": "CASE_013",
+  "caseTitle": "The Amber Turnstile",
+  "caseDescription": "A brass transit token key vanished from the Kingsgate Night Terminal after the storm diversion gate was forced into manual override. Five late-shift staff had access to the locked mezzanine booth, but only one suspect matches the amber varnish transfer, snapped key ring clip, and threaded station tag caught in the getaway satchel.",
+  "location": {
+    "addressOrBusiness": "Kingsgate Night Terminal",
+    "city": "Liverpool",
+    "country": "England"
+  },
+  "featuredImageStem": "featured_00001_",
+  "featuredImagePromptBase": "rainy night transit mezzanine after a breach, empty brass token key stand inside a glass booth, amber gate lamps reflecting on tile, manual override lever exposed, no people, physical clue scene",
+  "instruction": "Review the lineup, compare each suspect against the physical evidence, and accuse the only person whose story still fits every clue.",
+  "verdictTitle": "Case Conclusion",
+  "explanation": "The guilty suspect is Inez Vale, slot 2. Amber Varnish Smear places Inez at the forced gate booth during the manual override window, Broken Ring Clip matches the snapped clip hidden in her satchel seam to the missing token key loop, and Station Tag Thread ties her luggage strap directly to the missing mezzanine tag. Owen Mercer's stained maintenance coat is the red herring: he had booth access and looked messy enough to blame, but the clip fragment and tag-thread transfer do not connect to him.",
+  "guiltySlot": 2,
+  "suspects": [
+    {
+      "slot": 1,
+      "displayName": "Owen Mercer",
+      "sex": "Male",
+      "occupation": "Gate Maintenance Lead",
+      "nationality": "English",
+      "height": "6'1\"",
+      "weight": "198 lb",
+      "keyPersonalityTrait": "Blunt",
+      "dialogue": "I fixed the west barrier track before the rain surge. After that I stayed on platform repairs, not inside the mezzanine booth.",
+      "profile": "Age 45, veteran maintenance lead with oil-dark cuffs and a habit of treating every station problem like a machine that needs hitting harder.",
+      "motive": "Could lose his post if investigators discover he skipped the final lock check on the mezzanine gate housing.",
+      "notes": "Strong red herring because his coat already carries grime and varnish dust, but none of the booth-specific transfer evidence lands on his tools.",
+      "visualIdentity": {
+        "ageRead": "mid 40s",
+        "build": "broad heavy frame",
+        "silhouette": "thick maintenance slicker with square shoulders",
+        "wardrobe": "weathered utility slicker, heavy work trousers, reinforced boots",
+        "hair": "short graying hair with rough stubble",
+        "accessorySignature": "industrial wrist brace",
+        "props": "canvas repair bag and metal flashlight",
+        "paletteAccent": "rust orange seam tape",
+        "poseEnergy": "grounded confrontational stance"
+      },
+      "portraitStem": "suspect_00001_",
+      "portraitPromptBase": "gate maintenance lead, thick maintenance slicker with square shoulders, reinforced boots, industrial wrist brace, canvas repair bag, metal flashlight, rust orange seam tape accent, grounded confrontational stance, full body standing"
+    },
+    {
+      "slot": 2,
+      "displayName": "Inez Vale",
+      "sex": "Female",
+      "occupation": "Diversion Desk Supervisor",
+      "nationality": "Irish",
+      "height": "5'8\"",
+      "weight": "146 lb",
+      "keyPersonalityTrait": "Polished",
+      "dialogue": "I only entered the booth after the override alarm. Any amber stain on my gloves came from old handrail varnish near the stairs.",
+      "profile": "Age 37, immaculate diversion desk supervisor trusted with reroute calls, mezzanine authorizations, and emergency passenger flow.",
+      "motive": "Needed to hide a private fare-reroute favor before the station board reviewed the storm diversion logs.",
+      "notes": "Too ready with an explanation for the amber smear and the only suspect with a clean administrative path to the missing token key.",
+      "visualIdentity": {
+        "ageRead": "late 30s",
+        "build": "lean poised frame",
+        "silhouette": "long fitted station coat with a sharp flared hem",
+        "wardrobe": "tailored station coat, slim gloves, tapered trousers, polished ankle boots",
+        "hair": "sleek dark wave pinned behind one side",
+        "accessorySignature": "brass whistle chain draped across the lapel",
+        "props": "structured leather satchel and folded route folio",
+        "paletteAccent": "amber silk scarf accent",
+        "poseEnergy": "forward elegant stance"
+      },
+      "portraitStem": "suspect_00002_",
+      "portraitPromptBase": "diversion desk supervisor, long fitted station coat with sharp flared hem, slim gloves, polished ankle boots, brass whistle chain, structured leather satchel, amber silk scarf accent, forward elegant stance, full body standing"
+    },
+    {
+      "slot": 3,
+      "displayName": "Mae Corwin",
+      "sex": "Female",
+      "occupation": "Ticket Reconciliation Clerk",
+      "nationality": "Welsh",
+      "height": "5'4\"",
+      "weight": "132 lb",
+      "keyPersonalityTrait": "Meticulous",
+      "dialogue": "I stayed in the ledger cage balancing the diversion receipts. I never handled the brass booth key once the gate alarms started.",
+      "profile": "Age 30, exacting reconciliation clerk who notices every missing fare slip and keeps immaculate night-balance sheets.",
+      "motive": "Could be desperate to bury a revenue mismatch that would otherwise surface at morning handoff.",
+      "notes": "Strong paperwork motive, but her sleeves and ledger kit are too clean for the booth transfer chain.",
+      "visualIdentity": {
+        "ageRead": "early 30s",
+        "build": "small compact frame",
+        "silhouette": "cropped office jacket over a narrow skirt line",
+        "wardrobe": "trim office jacket, pencil skirt, tidy low heels, fitted gloves",
+        "hair": "precise curled bob",
+        "accessorySignature": "tiny round spectacles on a chain",
+        "props": "receipt ledger and clip pencil",
+        "paletteAccent": "muted sea-green collar trim",
+        "poseEnergy": "contained upright posture"
+      },
+      "portraitStem": "suspect_00003_",
+      "portraitPromptBase": "ticket reconciliation clerk, cropped office jacket over narrow skirt line, round spectacles on chain, receipt ledger, clip pencil, muted sea-green collar trim, contained upright posture, full body standing"
+    },
+    {
+      "slot": 4,
+      "displayName": "Silas Quade",
+      "sex": "Male",
+      "occupation": "Platform Security Marshal",
+      "nationality": "Scottish",
+      "height": "6'3\"",
+      "weight": "214 lb",
+      "keyPersonalityTrait": "Measured",
+      "dialogue": "I swept the upper platforms and stairwell landings. I heard the booth alarm but I did not unlock the mezzanine cage.",
+      "profile": "Age 42, disciplined platform marshal assigned to crowd control, emergency stair closures, and after-hours barrier checks.",
+      "motive": "Could want to hide a lapse in his mezzanine patrol timing after the weather diversion began.",
+      "notes": "His patrol route gives proximity, but none of the token-key evidence or satchel fibers point back to his gear.",
+      "visualIdentity": {
+        "ageRead": "early 40s",
+        "build": "towering athletic build",
+        "silhouette": "long security cape-coat with a vertical column shape",
+        "wardrobe": "dark marshal coat, broad belt, polished boots, weather gloves",
+        "hair": "close-cropped hair with a severe jawline",
+        "accessorySignature": "silver stair whistle at the throat",
+        "props": "baton holster and ticket punch torch",
+        "paletteAccent": "cold steel-blue shoulder tabs",
+        "poseEnergy": "still sentinel posture"
+      },
+      "portraitStem": "suspect_00004_",
+      "portraitPromptBase": "platform security marshal, long security cape-coat with vertical column silhouette, polished boots, silver stair whistle, baton holster, ticket punch torch, steel-blue shoulder tab accent, still sentinel posture, full body standing"
+    },
+    {
+      "slot": 5,
+      "displayName": "Clara Nox",
+      "sex": "Female",
+      "occupation": "Night Platform Announcer",
+      "nationality": "English",
+      "height": "5'10\"",
+      "weight": "150 lb",
+      "keyPersonalityTrait": "Theatrical",
+      "dialogue": "I stayed near the microphone desk calling the reroutes. I never took the mezzanine key upstairs, and I certainly did not force the booth latch.",
+      "profile": "Age 33, magnetic platform announcer whose voice steadies late-night crowds and whose style is impossible to ignore.",
+      "motive": "Could benefit from hiding an unauthorized reroute favor promised to a private client during the storm delay.",
+      "notes": "She looks flashy enough to suspect, but the booth varnish and torn ring clip never touch her gloves or microphone case.",
+      "visualIdentity": {
+        "ageRead": "early 30s",
+        "build": "long elegant frame",
+        "silhouette": "sweeping belted cape with a dramatic diagonal line",
+        "wardrobe": "belted cape, narrow trousers, heeled boots, long leather gloves",
+        "hair": "voluminous auburn waves",
+        "accessorySignature": "crescent microphone brooch",
+        "props": "portable announcement case and slim umbrella",
+        "paletteAccent": "deep marigold lining at the cape edge",
+        "poseEnergy": "showman half-turn pose"
+      },
+      "portraitStem": "suspect_00005_",
+      "portraitPromptBase": "night platform announcer, sweeping belted cape with diagonal line, long leather gloves, crescent microphone brooch, portable announcement case, slim umbrella, deep marigold cape lining accent, showman half-turn pose, full body standing"
+    }
+  ],
+  "evidence": [
+    {
+      "slot": 1,
+      "title": "Amber Varnish Smear",
+      "description": "A fresh amber varnish smear from the forced gate booth matches the residue along Inez's right glove seam.",
+      "discoveryLocation": "Mezzanine Booth Latch",
+      "imageStem": "evidence_00001_",
+      "imagePromptBase": "fresh amber varnish smear across brass latch metal and glove seam transfer, forensic close detail, clue communicated only through physical detail"
+    },
+    {
+      "slot": 2,
+      "title": "Broken Ring Clip",
+      "description": "A snapped brass ring clip hidden in Inez's satchel seam matches the missing loop from the transit token key.",
+      "discoveryLocation": "Satchel Inner Seam",
+      "imageStem": "evidence_00002_",
+      "imagePromptBase": "small broken brass ring clip beside token key loop fragment on evidence tray, macro clue detail, clue communicated only through physical detail"
+    },
+    {
+      "slot": 3,
+      "title": "Station Tag Thread",
+      "description": "Thread from the mezzanine station tag is caught in Inez's satchel strap and matches fibers from the missing key hook.",
+      "discoveryLocation": "Satchel Strap Stitching",
+      "imageStem": "evidence_00003_",
+      "imagePromptBase": "dark station tag thread caught in leather satchel strap beside brass key hook, close forensic detail, clue communicated only through physical detail"
+    }
+  ]
+}

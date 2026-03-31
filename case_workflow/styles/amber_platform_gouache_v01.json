@@ -1,0 +1,26 @@
+{
+  "styleId": "amber_platform_gouache_v01",
+  "label": "Amber Platform Gouache",
+  "globalPrefix": "stylized cinematic gouache illustration, rain-washed transit noir, painted paper texture",
+  "globalSuffix": "layered brush texture, bold shape design, moody atmosphere, crisp focal edges, no text, no watermark",
+  "assetTypes": {
+    "suspect": {
+      "prefix": "full-length suspect portrait, head-to-toe visible, single person, centered framing, shoes visible",
+      "suffix": "distinct silhouette, expressive pose language, readable face, fashion-forward pulp mood"
+    },
+    "evidence": {
+      "prefix": "single decisive clue, forensic still-life framing",
+      "suffix": "clear clue readability, painterly detail, uncluttered composition"
+    },
+    "featured": {
+      "prefix": "establishing location painting, no people",
+      "suffix": "strong environmental storytelling, glowing practical lights, atmospheric depth"
+    }
+  },
+  "negativePrompts": {
+    "global": "text, logo, watermark, blurry, muddy composition, low detail",
+    "suspect": "multiple people, cropped body, missing feet, duplicate person, extra limbs, malformed hands",
+    "evidence": "messy composition, multiple unrelated objects, unreadable clue",
+    "featured": "people, crowd, bright midday sun, cheerful tone"
+  }
+}
