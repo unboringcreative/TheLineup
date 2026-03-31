@@ -1,0 +1,124 @@
+{
+  "caseId": "CASE_011",
+  "caseTitle": "The Sable Cartridge",
+  "caseDescription": "A sealed microfilm cartridge vanished from the municipal bond archive shortly before dawn transfer. Five staff had overlapping access, but only one suspect matches the dust transfer, tamper-fiber snag, and forged route update.",
+  "location": {
+    "addressOrBusiness": "Municipal Bond Archive Annex",
+    "city": "Montreal",
+    "country": "Canada"
+  },
+  "featuredImageStem": "featured_00001_",
+  "featuredImagePromptBase": "municipal archive annex after overnight breach, empty microfilm cradle on steel desk, open route ledger, rain on frosted windows, no people",
+  "instruction": "Review suspect interviews and all evidence, then accuse the single suspect consistent with every clue.",
+  "verdictTitle": "Case Conclusion",
+  "explanation": "The guilty suspect is Petra Sloan, slot 3. Route Terminal Gap places Petra at the route terminal during the undocumented transfer window, Sable Dust Transfer matches cartridge residue inside her folio strap seam, and Tamper-Fiber Snag links her cuff directly to the missing cartridge sleeve. Jonah Rix is the red herring: his intake backlog gave him motive pressure, but his terminal timing and lack of matching transfer evidence clear him.",
+  "guiltySlot": 3,
+  "suspects": [
+    {
+      "slot": 1,
+      "displayName": "Jonah Rix",
+      "sex": "Male",
+      "occupation": "Records Intake Officer",
+      "nationality": "Canadian",
+      "height": "5'10\"",
+      "weight": "176 lb",
+      "keyPersonalityTrait": "Methodical",
+      "dialogue": "I logged inbound reels and sealed the drawer. I never touched outbound cartridge routing.",
+      "profile": "Age 36, procedural, reliable under routine archive load.",
+      "motive": "Feared accountability for delayed intake reconciliation.",
+      "notes": "Consistent statement and regular terminal timestamps.",
+      "portraitStem": "suspect_00001_",
+      "portraitPromptBase": "records intake officer in structured coat with ledger tablet, full body standing"
+    },
+    {
+      "slot": 2,
+      "displayName": "Mara Keene",
+      "sex": "Female",
+      "occupation": "Shift Security Liaison",
+      "nationality": "Irish",
+      "height": "5'8\"",
+      "weight": "148 lb",
+      "keyPersonalityTrait": "Steady",
+      "dialogue": "My patrol stayed in the service corridor. I heard the route terminal beep once but didn't access it.",
+      "profile": "Age 33, calm, observant, assigned to overnight floor sweeps.",
+      "motive": "Could conceal a missed patrol checkpoint.",
+      "notes": "No cartridge residue found on uniform or gloves.",
+      "portraitStem": "suspect_00002_",
+      "portraitPromptBase": "security liaison with patrol radio and raincoat, full body standing"
+    },
+    {
+      "slot": 3,
+      "displayName": "Petra Sloan",
+      "sex": "Female",
+      "occupation": "Transfer Coordinator",
+      "nationality": "American",
+      "height": "5'9\"",
+      "weight": "154 lb",
+      "keyPersonalityTrait": "Composed",
+      "dialogue": "I only confirmed dispatch tags. Any dust on my folio is from old shelving in intake.",
+      "profile": "Age 41, poised, senior transfer coordinator with route override rights.",
+      "motive": "Needed to hide a route alteration tied to unauthorized pre-release access.",
+      "notes": "Claims no contact with cartridge sleeve despite matching fiber snag.",
+      "portraitStem": "suspect_00003_",
+      "portraitPromptBase": "transfer coordinator with structured folio and cuff detail, faint dark dust trace, full body standing"
+    },
+    {
+      "slot": 4,
+      "displayName": "Ilan Drost",
+      "sex": "Male",
+      "occupation": "Compliance Auditor",
+      "nationality": "Dutch",
+      "height": "6'0\"",
+      "weight": "186 lb",
+      "keyPersonalityTrait": "Precise",
+      "dialogue": "I reviewed route logs from terminal B only. Cartridge custody should have remained locked.",
+      "profile": "Age 39, detail-obsessed, strict on chain-of-custody policy.",
+      "motive": "Could avoid scrutiny over unresolved audit discrepancies.",
+      "notes": "Interview details line up with terminal activity records.",
+      "portraitStem": "suspect_00004_",
+      "portraitPromptBase": "compliance auditor in tailored blazer with data folio, full body standing"
+    },
+    {
+      "slot": 5,
+      "displayName": "Sera Vale",
+      "sex": "Female",
+      "occupation": "Archive Systems Technician",
+      "nationality": "British",
+      "height": "5'7\"",
+      "weight": "142 lb",
+      "keyPersonalityTrait": "Direct",
+      "dialogue": "I patched index errors and left before dispatch handoff. I never opened the cartridge cabinet.",
+      "profile": "Age 30, technical specialist, direct communication style.",
+      "motive": "Had pressure to hide recurring index failures.",
+      "notes": "No matching residue or fiber transfer on toolkit or sleeves.",
+      "portraitStem": "suspect_00005_",
+      "portraitPromptBase": "archive systems technician with toolkit satchel and utility jacket, full body standing"
+    }
+  ],
+  "evidence": [
+    {
+      "slot": 1,
+      "title": "Route Terminal Gap",
+      "description": "Terminal logs show an unauthorized route update at the exact minute the cartridge left custody.",
+      "discoveryLocation": "Route Terminal A",
+      "imageStem": "evidence_00001_",
+      "imagePromptBase": "route terminal event log with undocumented transfer gap marker, forensic close-up"
+    },
+    {
+      "slot": 2,
+      "title": "Sable Dust Transfer",
+      "description": "Dark cartridge dust recovered from Petra's folio strap seam matches residue from the missing cartridge cradle.",
+      "discoveryLocation": "Folio Strap Seam",
+      "imageStem": "evidence_00002_",
+      "imagePromptBase": "forensic swab card showing dark cartridge dust and strap fibers, macro clue detail"
+    },
+    {
+      "slot": 3,
+      "title": "Tamper-Fiber Snag",
+      "description": "A torn tamper-fiber caught on Petra's cuff aligns microscopically with the missing cartridge sleeve.",
+      "discoveryLocation": "Left Cuff Edge",
+      "imageStem": "evidence_00003_",
+      "imagePromptBase": "torn tamper-fiber strand mounted on evidence slide, investigative macro shot"
+    }
+  ]
+}

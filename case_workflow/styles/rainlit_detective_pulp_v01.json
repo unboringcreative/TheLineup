@@ -1,0 +1,26 @@
+{
+  "styleId": "rainlit_detective_pulp_v01",
+  "label": "Rainlit Detective Pulp",
+  "globalPrefix": "stylized detective pulp illustration, rain-slick neo-noir atmosphere",
+  "globalSuffix": "cinematic rim lighting, wet reflections, dramatic perspective, crisp line detail, rich texture, no text, no watermark",
+  "assetTypes": {
+    "suspect": {
+      "prefix": "full-length suspect portrait, head-to-toe visible, single person, centered framing, shoes visible",
+      "suffix": "character-driven pose, expressive face, trench-coat era mood, readable silhouette"
+    },
+    "evidence": {
+      "prefix": "single crucial clue, forensic tabletop framing",
+      "suffix": "high detail macro realism, controlled depth of field, uncluttered composition"
+    },
+    "featured": {
+      "prefix": "establishing location artwork, no people",
+      "suffix": "stormy city ambience, strong focal lighting, investigative mood"
+    }
+  },
+  "negativePrompts": {
+    "global": "text, logo, watermark, blurry, low quality, compression artifacts",
+    "suspect": "multiple people, cropped body, missing feet, duplicate person, extra limbs, malformed hands",
+    "evidence": "messy composition, multiple unrelated objects, unreadable details",
+    "featured": "people, crowd, daylight sunshine, cheerful tone"
+  }
+}

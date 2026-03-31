@@ -1,0 +1,89 @@
+using System;
+using System.Diagnostics;
+using System.IO;
+using UnityEditor;
+using UnityEngine;
+
+public static class QwenCaseGenerator
+{
+    private const string PythonExe = @"C:\SwarmUI\SwarmUI\dlbackend\comfy\python_embeded\python.exe";
+    private const string ScriptPath = "Assets/Editor/QwenCaseGenerator.py";
+
+    [MenuItem("Tools/The Lineup/Generate Current Case Images")]
+    public static void GenerateCurrentCase()
+    {
+        string incoming = "Assets/GeneratedCases/incoming";
+        string[] files = Directory.GetFiles(incoming, "*.json", SearchOption.AllDirectories);
+        if (files.Length == 0)
+        {
+            EditorUtility.DisplayDialog("Error", "No case JSON found in " + incoming, "OK");
+            return;
+        }
+        Run(files[0], Path.GetDirectoryName(files[0]));
+    }
+
+    [MenuItem("Tools/The Lineup/Generate Case Images (Qwen 2.5)")]
+    public static void GenerateCaseFile()
+    {
+        string json = EditorUtility.OpenFilePanel("Select Case JSON", "Assets/GeneratedCases/incoming", "json");
+        if (string.IsNullOrEmpty(json)) return;
+        string outDir = EditorUtility.OpenFolderPanel("Output Directory", "Assets/GeneratedCases/incoming", "");
+        if (string.IsNullOrEmpty(outDir)) return;
+        Run(json, outDir);
+    }
+
+    static void Run(string jsonPath, string outputDir)
+    {
+        string script = Path.GetFullPath(Path.Combine(Application.dataPath, "../" + ScriptPath));
+
+        if (!File.Exists(PythonExe))
+        {
+            EditorUtility.DisplayDialog("Error", "Python not found:\n" + PythonExe, "OK");
+            return;
+        }
+        if (!File.Exists(script))
+        {
+            EditorUtility.DisplayDialog("Error", "Script not found:\n" + script, "OK");
+            return;
+        }
+
+        var psi = new ProcessStartInfo
+        {
+            FileName = PythonExe,
+            Arguments = $"\"{script}\" --json \"{jsonPath}\" --output \"{outputDir}\"",
+            WorkingDirectory = Path.GetDirectoryName(script),
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            UseShellExecute = false,
+            CreateNoWindow = false
+        };
+
+        try
+        {
+            EditorUtility.DisplayProgressBar("Qwen Generation", "Starting...", 0.1f);
+            using var proc = Process.Start(psi);
+            string stdout = proc.StandardOutput.ReadToEnd();
+            string stderr = proc.StandardError.ReadToEnd();
+            proc.WaitForExit();
+            EditorUtility.ClearProgressBar();
+
+            if (!string.IsNullOrWhiteSpace(stdout)) Debug.Log("[Qwen] " + stdout);
+            if (!string.IsNullOrWhiteSpace(stderr)) Debug.LogWarning("[Qwen] " + stderr);
+
+            if (proc.ExitCode == 0)
+            {
+                EditorUtility.DisplayDialog("Done", "Images saved to:\n" + outputDir, "OK");
+                AssetDatabase.Refresh();
+            }
+            else
+            {
+                EditorUtility.DisplayDialog("Error", $"Exit code {proc.ExitCode}\n\n{stderr}", "OK");
+            }
+        }
+        catch (Exception ex)
+        {
+            EditorUtility.ClearProgressBar();
+            EditorUtility.DisplayDialog("Error", ex.Message, "OK");
+        }
+    }
+}

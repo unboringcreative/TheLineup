@@ -1,0 +1,124 @@
+{
+  "caseId": "CASE_010",
+  "caseTitle": "The Ghost Docket",
+  "caseDescription": "A sealed customs docket disappeared from the midnight adjudication desk minutes before a high-value freight release. Five personnel had access windows, but only one suspect matches the resin smear, torn tamper tape, and rerouted scanner log.",
+  "location": {
+    "addressOrBusiness": "Mercado Customs Arbitration Office",
+    "city": "Sao Paulo",
+    "country": "Brazil"
+  },
+  "featuredImageStem": "featured_00001_",
+  "featuredImagePromptBase": "neon-lit customs arbitration room after midnight, empty docket sleeve on steel desk, open stamp case, rain reflections on floor tiles, no people",
+  "instruction": "Review all suspect interviews and evidence cards, then accuse the only suspect who aligns with every clue.",
+  "verdictTitle": "Case Conclusion",
+  "explanation": "The guilty suspect is Riven Cole, slot 5. Lane C Scanner Reroute places him at the unauthorized dispatch gap, Sealant Resin Cuff Swab ties his sleeve to the docket sealant, and Torn Tamper Tape Match links his satchel directly to the missing packet seam. Kiro Hahn is the red herring: he heard the scanner chirp and had patrol proximity, but no resin or tamper material connects him to the stolen docket.",
+  "guiltySlot": 5,
+  "suspects": [
+    {
+      "slot": 1,
+      "displayName": "Ayla Neri",
+      "sex": "Female",
+      "occupation": "Records Intake Clerk",
+      "nationality": "Brazilian",
+      "height": "5'6\"",
+      "weight": "136 lb",
+      "keyPersonalityTrait": "Systematic",
+      "dialogue": "I tagged inbound parcels and sealed them. I never opened outbound customs dockets.",
+      "profile": "Age 28, orderly intake clerk trusted to keep late-night docket batches moving without backlog spillover.",
+      "motive": "Needed to avoid blame for a stack of unprocessed intake packets discovered before shift handoff.",
+      "notes": "Procedure-focused and supported by clean intake station timing.",
+      "portraitStem": "suspect_00001_",
+      "portraitPromptBase": "records intake clerk with neon reflections on raincoat, systematic posture, full body standing"
+    },
+    {
+      "slot": 2,
+      "displayName": "Mateo Virel",
+      "sex": "Male",
+      "occupation": "Dock Marshal",
+      "nationality": "Spanish",
+      "height": "6'0\"",
+      "weight": "190 lb",
+      "keyPersonalityTrait": "Brisk",
+      "dialogue": "My route stayed on loading bay checks. I did not enter arbitration while releases were locked.",
+      "profile": "Age 40, fast-moving dock marshal who treats loading delays like operational failures.",
+      "motive": "Could benefit from shifting blame away from a missed loading-bay verification.",
+      "notes": "Boot prints and route logs keep him out of the arbitration room at the key minute.",
+      "portraitStem": "suspect_00002_",
+      "portraitPromptBase": "dock marshal in reflective jacket with handheld scanner, brisk stance, full body standing"
+    },
+    {
+      "slot": 3,
+      "displayName": "Nola Price",
+      "sex": "Female",
+      "occupation": "Freight Compliance Auditor",
+      "nationality": "American",
+      "height": "5'8\"",
+      "weight": "147 lb",
+      "keyPersonalityTrait": "Exacting",
+      "dialogue": "I reviewed tariff anomalies at terminal D. Any docket tamper would have triggered my checklist.",
+      "profile": "Age 37, hard-edged compliance auditor known for catching minor paperwork drift before dawn release windows.",
+      "motive": "Had reason to hide an unresolved anomaly that could undermine her last audit report.",
+      "notes": "Her checklist obsession reads suspiciously, but no physical transfer evidence supports her involvement.",
+      "portraitStem": "suspect_00003_",
+      "portraitPromptBase": "freight compliance auditor with slim folio and glasses, exacting expression, full body standing"
+    },
+    {
+      "slot": 4,
+      "displayName": "Kiro Hahn",
+      "sex": "Male",
+      "occupation": "Security Rotation Officer",
+      "nationality": "German",
+      "height": "6'1\"",
+      "weight": "202 lb",
+      "keyPersonalityTrait": "Measured",
+      "dialogue": "I logged corridor patrols every ten minutes. I heard the scanner chirp but did not access lane C.",
+      "profile": "Age 42, measured security officer assigned to corridor sweeps and late-shift patrol discipline.",
+      "motive": "Could want to bury a patrol lapse near scanner lane C.",
+      "notes": "Strong red-herring profile because of scanner proximity, but no resin or torn tape was recovered from his gear.",
+      "portraitStem": "suspect_00004_",
+      "portraitPromptBase": "security rotation officer with dark patrol coat and radio earpiece, measured posture, full body standing"
+    },
+    {
+      "slot": 5,
+      "displayName": "Riven Cole",
+      "sex": "Male",
+      "occupation": "Dispatch Supervisor",
+      "nationality": "British",
+      "height": "5'11\"",
+      "weight": "179 lb",
+      "keyPersonalityTrait": "Composed",
+      "dialogue": "I only rerouted routine labels to keep freight moving. Any residue on my sleeve is from old packing tape.",
+      "profile": "Age 39, polished dispatch supervisor with authority over reroutes, release pacing, and scanner exceptions.",
+      "motive": "Needed to conceal an unauthorized freight release favor before customs adjudication caught it.",
+      "notes": "Downplays his reroute authority and gives the weakest explanation for the resin transfer.",
+      "portraitStem": "suspect_00005_",
+      "portraitPromptBase": "dispatch supervisor in tailored coat with satchel strap, composed demeanor, faint resin stain on cuff, full body standing"
+    }
+  ],
+  "evidence": [
+    {
+      "slot": 1,
+      "title": "Lane C Scanner Reroute",
+      "description": "Scanner events show an unauthorized reroute at lane C under dispatch supervisor credentials during the missing-minute gap.",
+      "discoveryLocation": "Scanner Lane C",
+      "imageStem": "evidence_00001_",
+      "imagePromptBase": "scanner lane event printout with reroute timestamp anomaly, forensic close-up, single clear clue"
+    },
+    {
+      "slot": 2,
+      "title": "Sealant Resin Cuff Swab",
+      "description": "Forensic swab detects sealant resin on Riven's cuff matching the exact compound used on customs docket sleeves.",
+      "discoveryLocation": "Left Sleeve Cuff",
+      "imageStem": "evidence_00002_",
+      "imagePromptBase": "forensic swab card with amber resin trace and fabric fibers, macro clue photography"
+    },
+    {
+      "slot": 3,
+      "title": "Torn Tamper Tape Match",
+      "description": "A torn tamper tape fragment recovered from Riven's satchel aligns physically with the missing docket packet seam.",
+      "discoveryLocation": "Satchel Inner Pocket",
+      "imageStem": "evidence_00003_",
+      "imagePromptBase": "torn security tamper tape fragment on evidence tray, investigative macro detail, single clear clue"
+    }
+  ]
+}

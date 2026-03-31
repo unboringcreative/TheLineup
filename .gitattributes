@@ -1,0 +1,35 @@
+# Normalize text files
+* text=auto eol=lf
+
+# Keep Windows script line endings where expected
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Unity assets are YAML/text and should stay mergeable
+*.meta text
+*.unity text
+*.prefab text
+*.asset text
+*.mat text
+*.anim text
+*.controller text
+*.overrideController text
+*.playable text
+*.mask text
+*.physicsMaterial2D text
+*.spriteatlas text
+
+# Common binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.tga binary
+*.psd binary
+*.exr binary
+*.wav binary
+*.mp3 binary
+*.mp4 binary
+*.fbx binary
+*.ttf binary
+*.otf binary

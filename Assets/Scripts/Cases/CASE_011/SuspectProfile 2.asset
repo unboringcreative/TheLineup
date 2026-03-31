@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fb761c0fd2597b4e8ff14be87102695, type: 3}
+  m_Name: SuspectProfile 2
+  m_EditorClassIdentifier: Assembly-CSharp::SuspectProfileSO
+  suspectId: suspect_002
+  displayName: Mara Keene
+  sex: Female
+  occupation: Shift Security Liaison
+  nationality: Irish
+  height: 5'8"
+  weight: 148 lb
+  keyPersonalityTrait: Steady
+  dialogue: My patrol stayed in the service corridor. I heard the route terminal beep once but didn't access it.
+  profile: Age 33, calm, observant, assigned to overnight floor sweeps.
+  motive: Could conceal a missed patrol checkpoint.
+  notes: No cartridge residue found on uniform or gloves.
+  portrait: {fileID: 21300000, guid: f9c14db5e230d3b4dad452b6eeab484f, type: 3}

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6f08364790497b44845ca143098c02b, type: 3}
+  m_Name: EvidenceProfile 3
+  m_EditorClassIdentifier: Assembly-CSharp::EvidenceProfileSO
+  evidenceId: evidence_003
+  title: Torn Tamper Tape Match
+  description: A torn tamper tape fragment recovered from Riven's satchel aligns physically with the missing docket packet seam.
+  discoveryLocation: Satchel Inner Pocket
+  image: {fileID: 21300000, guid: 72f42db6cb152ab4a8413a06a2306835, type: 3}

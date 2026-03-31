@@ -1,0 +1,26 @@
+{
+  "styleId": "lucasarts_pixel_adventure_v01",
+  "label": "Early LucasArts Pixel Adventure",
+  "globalPrefix": "classic late-80s/early-90s point-and-click adventure pixel art, hand-dithered shading, chunky readable silhouettes, limited color palette",
+  "globalSuffix": "clean pixel clusters, deliberate anti-aliasing, no modern 3D rendering, no photoreal textures, no text, no watermark",
+  "assetTypes": {
+    "suspect": {
+      "prefix": "full-body adventure game character sprite style, standing pose, centered framing, clear facial expression, readable outfit details",
+      "suffix": "pixel-art portrait composition, strong shape language, era-authentic adventure game look"
+    },
+    "evidence": {
+      "prefix": "single clue object in classic adventure game inventory art style, object-focused framing",
+      "suffix": "high readability at small size, strong contrast edges, pixel-clean details"
+    },
+    "featured": {
+      "prefix": "adventure game background scene, environmental storytelling, no people",
+      "suffix": "room-scene composition, moody but readable lighting, classic LucasArts-era pixel atmosphere"
+    }
+  },
+  "negativePrompts": {
+    "global": "photorealistic, cinematic depth of field, smooth gradients, vector art, text, logo, watermark, blurry",
+    "suspect": "multiple people, crowd, cropped body, close-up only, modern anime style, glossy 3D materials",
+    "evidence": "multiple unrelated objects, cluttered composition, unreadable object silhouette",
+    "featured": "people, crowd, modern UI overlays, text, logo"
+  }
+}

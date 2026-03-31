@@ -1,0 +1,124 @@
+{
+  "caseId": "CASE_009",
+  "caseTitle": "The Neon Receipt",
+  "caseDescription": "A sealed customs receipt vanished from a rain-soaked transit office just before a midnight cargo release. Five people were on shift, but only one suspect matches the solvent smear, torn seal strip, and falsified dispatch timing.",
+  "location": {
+    "addressOrBusiness": "South Wharf Transit Office",
+    "city": "Lisbon",
+    "country": "Portugal"
+  },
+  "featuredImageStem": "featured_00001_",
+  "featuredImagePromptBase": "rainlit transit records office after midnight, empty receipt sleeve under neon window glow, open lock drawer, wet shoe prints on tile, no people",
+  "instruction": "Review all interviews and evidence, then accuse the suspect who fits every clue.",
+  "verdictTitle": "Case Conclusion",
+  "explanation": "The guilty suspect is Kael Mercer, slot 2. Dispatch Gap Terminal Log places Kael at the dispatch station during the unlogged release gap. Solvent Cuff Transfer ties his sleeve directly to the coated receipt sleeve, and Torn Seal Strip Fragment matches the missing customs packet from his satchel. Mira Solis is the red herring: her badge sweep put her near the office, but no solvent or seal transfer connects her to the theft.",
+  "guiltySlot": 2,
+  "suspects": [
+    {
+      "slot": 1,
+      "displayName": "Lena Voss",
+      "sex": "Female",
+      "occupation": "Records Clerk",
+      "nationality": "Portuguese",
+      "height": "5'6\"",
+      "weight": "134 lb",
+      "keyPersonalityTrait": "Precise",
+      "dialogue": "I logged incoming packets and sealed the counter cage. I never touched outbound customs receipts.",
+      "profile": "Age 31, disciplined records clerk known for immaculate intake batches and rigid counter procedure.",
+      "motive": "Needed to avoid scrutiny over a late reconciliation stack that could cost her a promotion.",
+      "notes": "Calm under questioning and backed by consistent cage-lock timing.",
+      "portraitStem": "suspect_00001_",
+      "portraitPromptBase": "records clerk in rain-dark office attire holding ledger tablet, precise posture, full body, standing"
+    },
+    {
+      "slot": 2,
+      "displayName": "Kael Mercer",
+      "sex": "Male",
+      "occupation": "Dispatch Coordinator",
+      "nationality": "American",
+      "height": "5'11\"",
+      "weight": "181 lb",
+      "keyPersonalityTrait": "Controlled",
+      "dialogue": "I stayed on release calls. If my cuff has solvent, it came from old labels in the dock bins.",
+      "profile": "Age 38, polished dispatch coordinator trusted with midnight release sequencing and terminal overrides.",
+      "motive": "Needed to conceal an unauthorized release adjustment tied to a private freight favor.",
+      "notes": "Over-explains the solvent residue and minimizes his access to the sealed receipt sleeve.",
+      "portraitStem": "suspect_00002_",
+      "portraitPromptBase": "dispatch coordinator with wet overcoat and satchel, controlled expression, subtle solvent stain on cuff, full body, standing"
+    },
+    {
+      "slot": 3,
+      "displayName": "Mira Solis",
+      "sex": "Female",
+      "occupation": "Port Security Liaison",
+      "nationality": "Spanish",
+      "height": "5'8\"",
+      "weight": "149 lb",
+      "keyPersonalityTrait": "Watchful",
+      "dialogue": "I swept the loading lane and checked badges. I did not enter records while the release queue was active.",
+      "profile": "Age 35, vigilant security liaison with a reputation for noticing movement others miss.",
+      "motive": "Could be covering for a missed sweep interval near the records office.",
+      "notes": "Her corridor proximity makes her the cleanest red herring, but no transfer evidence ties her to the receipt.",
+      "portraitStem": "suspect_00003_",
+      "portraitPromptBase": "port security liaison in reflective rain jacket with badge scanner, watchful stance, full body, standing"
+    },
+    {
+      "slot": 4,
+      "displayName": "Dorian Pike",
+      "sex": "Male",
+      "occupation": "Customs Auditor",
+      "nationality": "British",
+      "height": "6'0\"",
+      "weight": "188 lb",
+      "keyPersonalityTrait": "Methodical",
+      "dialogue": "My review stayed at terminal four. Any mismatch in dispatch logs would be flagged in my audit trail.",
+      "profile": "Age 44, exacting customs auditor who treats paperwork drift as a personal insult.",
+      "motive": "Had reason to bury an embarrassing gap in his overnight audit coverage.",
+      "notes": "Audit trail and terminal assignment remain internally consistent.",
+      "portraitStem": "suspect_00004_",
+      "portraitPromptBase": "customs auditor with waterproof folio and tie, methodical demeanor, full body, standing"
+    },
+    {
+      "slot": 5,
+      "displayName": "Sera Quinn",
+      "sex": "Female",
+      "occupation": "Freight Broker",
+      "nationality": "Irish",
+      "height": "5'7\"",
+      "weight": "140 lb",
+      "keyPersonalityTrait": "Calm",
+      "dialogue": "I waited for manifest clearance at the lobby bench. I did not approach the locked records drawer.",
+      "profile": "Age 29, composed freight broker accustomed to delays, paperwork friction, and late-night release queues.",
+      "motive": "Could benefit from a delayed release if a client needed more time to clear customs.",
+      "notes": "No solvent or seal fragments were found on her briefcase or sleeves.",
+      "portraitStem": "suspect_00005_",
+      "portraitPromptBase": "freight broker with umbrella and slim briefcase, calm posture, full body, standing"
+    }
+  ],
+  "evidence": [
+    {
+      "slot": 1,
+      "title": "Dispatch Gap Terminal Log",
+      "description": "Terminal event history places Kael Mercer at the dispatch station during the exact unlogged release gap.",
+      "discoveryLocation": "Dispatch Console B",
+      "imageStem": "evidence_00001_",
+      "imagePromptBase": "dispatch terminal event log with missing-minute gap marker, forensic close-up, single clear clue"
+    },
+    {
+      "slot": 2,
+      "title": "Solvent Cuff Transfer",
+      "description": "Lab swab confirms solvent residue on Kael's cuff matches the coating used on sealed customs receipt sleeves.",
+      "discoveryLocation": "Left Cuff Seam",
+      "imageStem": "evidence_00002_",
+      "imagePromptBase": "forensic swab card with solvent residue and cuff fibers, macro clue shot"
+    },
+    {
+      "slot": 3,
+      "title": "Torn Seal Strip Fragment",
+      "description": "A torn seal strip recovered from Kael's satchel aligns perfectly with the missing customs packet seal.",
+      "discoveryLocation": "Inner Satchel Pocket",
+      "imageStem": "evidence_00003_",
+      "imagePromptBase": "torn security seal strip fragment on evidence tray, investigative macro detail"
+    }
+  ]
+}

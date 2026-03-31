@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fb761c0fd2597b4e8ff14be87102695, type: 3}
+  m_Name: SuspectProfile 3
+  m_EditorClassIdentifier: Assembly-CSharp::SuspectProfileSO
+  suspectId: suspect_003
+  displayName: Petra Sloan
+  sex: Female
+  occupation: Transfer Coordinator
+  nationality: American
+  height: 5'9"
+  weight: 154 lb
+  keyPersonalityTrait: Composed
+  dialogue: I only confirmed dispatch tags. Any dust on my folio is from old shelving in intake.
+  profile: Age 41, poised, senior transfer coordinator with route override rights.
+  motive: Needed to hide a route alteration tied to unauthorized pre-release access.
+  notes: Claims no contact with cartridge sleeve despite matching fiber snag.
+  portrait: {fileID: 21300000, guid: 19787e0f8000a20479cf8d036955540c, type: 3}

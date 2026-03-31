@@ -1,0 +1,26 @@
+{
+  "styleId": "neon_boulevard_grit_v01",
+  "label": "Neon Boulevard Grit",
+  "globalPrefix": "stylized urban crime paperback illustration, rain-soaked neon boulevard mood",
+  "globalSuffix": "bold cinematic contrast, glossy wet surfaces, gritty texture, controlled grain, no text, no watermark",
+  "assetTypes": {
+    "suspect": {
+      "prefix": "full-length suspect portrait, head-to-toe visible, single person, centered framing, shoes visible",
+      "suffix": "street-noir body language, expressive face, clear silhouette, wardrobe storytelling"
+    },
+    "evidence": {
+      "prefix": "single key clue, forensic close tabletop shot",
+      "suffix": "macro detail clarity, clean composition, focused lighting"
+    },
+    "featured": {
+      "prefix": "establishing urban scene artwork, no people",
+      "suffix": "neon storm ambience, strong focal light, investigative tension"
+    }
+  },
+  "negativePrompts": {
+    "global": "text, logo, watermark, blurry, low quality, jpeg artifacts",
+    "suspect": "multiple people, cropped body, missing feet, duplicate person, extra limbs, malformed hands",
+    "evidence": "multiple unrelated objects, cluttered background, unreadable clue",
+    "featured": "people, crowd, daytime sunshine, cheerful scene"
+  }
+}

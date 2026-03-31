@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fb761c0fd2597b4e8ff14be87102695, type: 3}
+  m_Name: SuspectProfile 3
+  m_EditorClassIdentifier: Assembly-CSharp::SuspectProfileSO
+  suspectId: suspect_003
+  displayName: Mira Solis
+  sex: Female
+  occupation: Port Security Liaison
+  nationality: Spanish
+  height: 5'8"
+  weight: 149 lb
+  keyPersonalityTrait: Watchful
+  dialogue: I swept the loading lane and checked badges. I did not enter records while the release queue was active.
+  profile: Age 35, vigilant security liaison with a reputation for noticing movement others miss.
+  motive: Could be covering for a missed sweep interval near the records office.
+  notes: Her corridor proximity makes her the cleanest red herring, but no transfer evidence ties her to the receipt.
+  portrait: {fileID: 21300000, guid: fa11cfe07b182c642a7d2927023be5f9, type: 3}

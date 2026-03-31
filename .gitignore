@@ -1,0 +1,70 @@
+# -----------------------------------------------------------------------------
+# OS / editor noise
+# -----------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+.vscode/
+.idea/
+.vs/
+*.DotSettings.user
+
+# -----------------------------------------------------------------------------
+# Unity generated content
+# -----------------------------------------------------------------------------
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+
+# Auto-generated solution/project files
+*.csproj
+*.unityproj
+*.sln
+*.slnx
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity package cache if present
+[Aa]ssets/[Ss]treamingAssets/aa.meta
+[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# -----------------------------------------------------------------------------
+# Case workflow local/runtime artifacts
+# -----------------------------------------------------------------------------
+case_workflow/.venv/
+case_workflow/**/__pycache__/
+case_workflow/**/*.pyc
+
+# Generated render outputs and local model snapshots
+case_workflow/outputs/
+case_workflow/models/
+
+# Local scratch/reference artifacts (do not version by default)
+case_workflow/artifacts/reference_outputs/
+case_workflow/artifacts/scratch/
+
+# Optional generated Unity import drop (keep folder + meta files)
+Assets/GeneratedCases/to_import/**
+!Assets/GeneratedCases/to_import/
+!Assets/GeneratedCases/to_import.meta
+!Assets/GeneratedCases/to_import/**/*.meta
+
+# -----------------------------------------------------------------------------
+# Local tooling
+# -----------------------------------------------------------------------------
+.codenomad/

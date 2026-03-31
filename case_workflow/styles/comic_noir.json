@@ -1,0 +1,26 @@
+{
+  "styleId": "comic_noir_v01",
+  "label": "Comic Noir",
+  "globalPrefix": "super-detailed comic noir illustration",
+  "globalSuffix": "crisp inking, layered cel shading, dramatic lighting, high contrast, clean composition, no text, no watermark",
+  "assetTypes": {
+    "suspect": {
+      "prefix": "full-length character portrait, head-to-toe, entire figure visible, centered framing, single person, shoes visible",
+      "suffix": "graphic-novel mood, strong silhouette, readable face, clean body proportions"
+    },
+    "evidence": {
+      "prefix": "single clear clue, forensic close-up",
+      "suffix": "object-focused composition, readable detail, minimal clutter"
+    },
+    "featured": {
+      "prefix": "environment illustration, no people",
+      "suffix": "moody investigative atmosphere, scene storytelling, strong focal point"
+    }
+  },
+  "negativePrompts": {
+    "global": "text, logo, watermark, blurry, low resolution",
+    "suspect": "multiple people, crowd, duplicate person, cropped body, cut-off feet, extra limbs, deformed hands",
+    "evidence": "multiple unrelated objects, cluttered composition, unreadable clue",
+    "featured": "people, crowd, logo, text, watermark"
+  }
+}

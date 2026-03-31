@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fb761c0fd2597b4e8ff14be87102695, type: 3}
+  m_Name: SuspectProfile 1
+  m_EditorClassIdentifier: Assembly-CSharp::SuspectProfileSO
+  suspectId: suspect_001
+  displayName: Ayla Neri
+  sex: Female
+  occupation: Records Intake Clerk
+  nationality: Brazilian
+  height: 5'6"
+  weight: 136 lb
+  keyPersonalityTrait: Systematic
+  dialogue: I tagged inbound parcels and sealed them. I never opened outbound customs dockets.
+  profile: Age 28, orderly intake clerk trusted to keep late-night docket batches moving without backlog spillover.
+  motive: Needed to avoid blame for a stack of unprocessed intake packets discovered before shift handoff.
+  notes: Procedure-focused and supported by clean intake station timing.
+  portrait: {fileID: 21300000, guid: fa5e8e227a8771e41b96684320f2a8b9, type: 3}

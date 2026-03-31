@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d7eb3c794a57b14fa77815382270587, type: 3}
+  m_Name: CASE_009_Definition
+  m_EditorClassIdentifier: Assembly-CSharp::CaseDefinitionSO
+  caseId: CASE_009
+  caseTitle: The Neon Receipt
+  caseDescription: A sealed customs receipt vanished from a rain-soaked transit office just before a midnight cargo release. Five people were on shift, but only one suspect matches the solvent smear, torn seal strip, and falsified dispatch timing.
+  locationAddressOrBusiness: South Wharf Transit Office
+  locationCity: Lisbon
+  locationCountry: Portugal
+  featuredImage: {fileID: 21300000, guid: 7aa80c08eb37a2844a438295d9c885e8, type: 3}
+  instruction: Review all interviews and evidence, then accuse the suspect who fits every clue.
+  suspects:
+  - {fileID: 11400000, guid: 41a744e751ef0984bad7b5cc2bb2bbab, type: 2}
+  - {fileID: 11400000, guid: f85e0c18a9c033f40ac6d17df49ef63e, type: 2}
+  - {fileID: 11400000, guid: 4e94511882abe8c4cb08829e75b87d7b, type: 2}
+  - {fileID: 11400000, guid: 290d40286ddc48a439c78db61c0fdf20, type: 2}
+  - {fileID: 11400000, guid: bbe20bcc8475d764cb1c6dcbf8f125f5, type: 2}
+  evidence:
+  - {fileID: 11400000, guid: f0c4150ab219db64fa8f3ce98da74637, type: 2}
+  - {fileID: 11400000, guid: d71ffb0fcb1a36a40857c550f556d2d5, type: 2}
+  - {fileID: 11400000, guid: 0021f5d91d676d846aa988fd5aa81bdb, type: 2}
+  guiltySuspectIndex: 1
+  verdictTitle: Case Conclusion
+  explanation: The guilty suspect is Kael Mercer, slot 2. Dispatch Gap Terminal Log places Kael at the dispatch station during the unlogged release gap. Solvent Cuff Transfer ties his sleeve directly to the coated receipt sleeve, and Torn Seal Strip Fragment matches the missing customs packet from his satchel. Mira Solis is the red herring: her badge sweep put her near the office, but no solvent or seal transfer connects her to the theft.

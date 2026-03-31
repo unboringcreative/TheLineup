@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fb761c0fd2597b4e8ff14be87102695, type: 3}
+  m_Name: SuspectProfile 1
+  m_EditorClassIdentifier: Assembly-CSharp::SuspectProfileSO
+  suspectId: suspect_001
+  displayName: Jonah Rix
+  sex: Male
+  occupation: Records Intake Officer
+  nationality: Canadian
+  height: 5'10"
+  weight: 176 lb
+  keyPersonalityTrait: Methodical
+  dialogue: I logged inbound reels and sealed the drawer. I never touched outbound cartridge routing.
+  profile: Age 36, procedural, reliable under routine archive load.
+  motive: Feared accountability for delayed intake reconciliation.
+  notes: Consistent statement and regular terminal timestamps.
+  portrait: {fileID: 21300000, guid: 75266d9845444104a9fa8f97805730ae, type: 3}

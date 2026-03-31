@@ -1,0 +1,26 @@
+{
+  "styleId": "clean_editorial_v01",
+  "label": "Clean Editorial",
+  "globalPrefix": "premium editorial illustration, polished modern visual design",
+  "globalSuffix": "clean shapes, controlled lighting, elegant composition, no text, no watermark",
+  "assetTypes": {
+    "suspect": {
+      "prefix": "full-body character portrait, single person, centered framing, full figure visible",
+      "suffix": "refined silhouette, premium wardrobe detail, clean readable face"
+    },
+    "evidence": {
+      "prefix": "forensic product-style evidence shot, single clear clue",
+      "suffix": "minimal background, sharp detail, clean premium presentation"
+    },
+    "featured": {
+      "prefix": "cinematic environment plate, no people",
+      "suffix": "premium atmosphere, controlled detail, strong visual hierarchy"
+    }
+  },
+  "negativePrompts": {
+    "global": "text, logo, watermark, blurry, low resolution",
+    "suspect": "multiple people, cropped body, extra limbs",
+    "evidence": "cluttered composition, multiple unrelated objects",
+    "featured": "people, crowd, logo, text, watermark"
+  }
+}

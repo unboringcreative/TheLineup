@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d7eb3c794a57b14fa77815382270587, type: 3}
+  m_Name: CASE_011_Definition
+  m_EditorClassIdentifier: Assembly-CSharp::CaseDefinitionSO
+  caseId: CASE_011
+  caseTitle: The Sable Cartridge
+  caseDescription: A sealed microfilm cartridge vanished from the municipal bond archive shortly before dawn transfer. Five staff had overlapping access, but only one suspect matches the dust transfer, tamper-fiber snag, and forged route update.
+  locationAddressOrBusiness: Municipal Bond Archive Annex
+  locationCity: Montreal
+  locationCountry: Canada
+  featuredImage: {fileID: 21300000, guid: 937045a145eec594cb3a0fe5e1b0d2bc, type: 3}
+  instruction: Review suspect interviews and all evidence, then accuse the single suspect consistent with every clue.
+  suspects:
+  - {fileID: 11400000, guid: 029e0c6a891b65845904eff0da034ffe, type: 2}
+  - {fileID: 11400000, guid: 517cda760e4dcfa4b99e4a261718a2f8, type: 2}
+  - {fileID: 11400000, guid: 2e25eb7c4c25cd944b0acece9e75ddd4, type: 2}
+  - {fileID: 11400000, guid: fc4de4bcfa6994a4fa8d6f788d32dc18, type: 2}
+  - {fileID: 11400000, guid: ff530df2053b006459531d0e3372af27, type: 2}
+  evidence:
+  - {fileID: 11400000, guid: 5c86f7fbebc4a54488b73549645fdf0b, type: 2}
+  - {fileID: 11400000, guid: f6183651465d0c247aba56d745974ad2, type: 2}
+  - {fileID: 11400000, guid: e072aab652feaef4894d9a62532824bc, type: 2}
+  guiltySuspectIndex: 2
+  verdictTitle: Case Conclusion
+  explanation: The guilty suspect is Petra Sloan, slot 3. Route Terminal Gap places Petra at the route terminal during the undocumented transfer window, Sable Dust Transfer matches cartridge residue inside her folio strap seam, and Tamper-Fiber Snag links her cuff directly to the missing cartridge sleeve. Jonah Rix is the red herring: his intake backlog gave him motive pressure, but his terminal timing and lack of matching transfer evidence clear him.

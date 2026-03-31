@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fb761c0fd2597b4e8ff14be87102695, type: 3}
+  m_Name: SuspectProfile 5
+  m_EditorClassIdentifier: Assembly-CSharp::SuspectProfileSO
+  suspectId: suspect_005
+  displayName: Riven Cole
+  sex: Male
+  occupation: Dispatch Supervisor
+  nationality: British
+  height: 5'11"
+  weight: 179 lb
+  keyPersonalityTrait: Composed
+  dialogue: I only rerouted routine labels to keep freight moving. Any residue on my sleeve is from old packing tape.
+  profile: Age 39, polished dispatch supervisor with authority over reroutes, release pacing, and scanner exceptions.
+  motive: Needed to conceal an unauthorized freight release favor before customs adjudication caught it.
+  notes: Downplays his reroute authority and gives the weakest explanation for the resin transfer.
+  portrait: {fileID: 21300000, guid: 6f9d5101b468333468517099e7e4335f, type: 3}

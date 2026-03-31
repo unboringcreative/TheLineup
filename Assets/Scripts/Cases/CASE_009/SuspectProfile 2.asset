@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fb761c0fd2597b4e8ff14be87102695, type: 3}
+  m_Name: SuspectProfile 2
+  m_EditorClassIdentifier: Assembly-CSharp::SuspectProfileSO
+  suspectId: suspect_002
+  displayName: Kael Mercer
+  sex: Male
+  occupation: Dispatch Coordinator
+  nationality: American
+  height: 5'11"
+  weight: 181 lb
+  keyPersonalityTrait: Controlled
+  dialogue: I stayed on release calls. If my cuff has solvent, it came from old labels in the dock bins.
+  profile: Age 38, polished dispatch coordinator trusted with midnight release sequencing and terminal overrides.
+  motive: Needed to conceal an unauthorized release adjustment tied to a private freight favor.
+  notes: Over-explains the solvent residue and minimizes his access to the sealed receipt sleeve.
+  portrait: {fileID: 21300000, guid: e2d764942c8ad874a84cdeb96302bf38, type: 3}

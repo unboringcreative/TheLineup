@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fb761c0fd2597b4e8ff14be87102695, type: 3}
+  m_Name: SuspectProfile 2
+  m_EditorClassIdentifier: Assembly-CSharp::SuspectProfileSO
+  suspectId: suspect_002
+  displayName: Mateo Virel
+  sex: Male
+  occupation: Dock Marshal
+  nationality: Spanish
+  height: 6'0"
+  weight: 190 lb
+  keyPersonalityTrait: Brisk
+  dialogue: My route stayed on loading bay checks. I did not enter arbitration while releases were locked.
+  profile: Age 40, fast-moving dock marshal who treats loading delays like operational failures.
+  motive: Could benefit from shifting blame away from a missed loading-bay verification.
+  notes: Boot prints and route logs keep him out of the arbitration room at the key minute.
+  portrait: {fileID: 21300000, guid: 0ba769e213e359e40b42686f67fffbf3, type: 3}

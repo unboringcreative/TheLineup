@@ -1,0 +1,179 @@
+{
+  "caseId": "CASE_012",
+  "caseTitle": "The Ivory Switch",
+  "caseDescription": "An ivory signal key vanished from the Harbor Municipal Signal Bureau moments before a storm-locked bridge schedule was manually rerouted. Five overnight staff had access to the relay room, but only one suspect matches the grease transfer, snapped retaining spring, and concealed relay tag swap.",
+  "location": {
+    "addressOrBusiness": "Harbor Municipal Signal Bureau",
+    "city": "Glasgow",
+    "country": "Scotland"
+  },
+  "featuredImageStem": "featured_00001_",
+  "featuredImagePromptBase": "storm-soaked municipal signal bureau relay room after breach, empty ivory key cradle on brass console, exposed switching levers, rain glow through wired glass, no people, physical clue scene",
+  "instruction": "Study each suspect and every evidence card, then accuse the only person whose story survives the full physical proof chain.",
+  "verdictTitle": "Case Conclusion",
+  "explanation": "The guilty suspect is Orla Vane, slot 4. Relay Cage Grease Transfer places Orla at the opened relay cage during the critical reroute window. Broken Retaining Spring matches the snapped spring hidden inside her cuff pouch to the empty ivory key housing, and Swapped Tag Thread links the relay tag thread caught in her case strap to the concealed manual override. Bram Dacre is the red herring: his soot-stained engineer coat and relay access make him look dangerous, but the spring fragment and tag-thread transfer do not connect to him.",
+  "guiltySlot": 4,
+  "suspects": [
+    {
+      "slot": 1,
+      "displayName": "Bram Dacre",
+      "sex": "Male",
+      "occupation": "Relay Maintenance Engineer",
+      "nationality": "Scottish",
+      "height": "6'2\"",
+      "weight": "201 lb",
+      "keyPersonalityTrait": "Gruff",
+      "dialogue": "I serviced the outer relays before midnight. After that I stayed off the bureau floor unless someone called for a reset.",
+      "profile": "Age 46, veteran relay engineer with permanent soot on his cuffs and a reputation for solving failures with brute practicality.",
+      "motive": "Could face suspension if a recent maintenance shortcut caused the bureau's unstable night routing.",
+      "notes": "Looks incriminating because of grease and relay access, but his kit lacks the broken spring and swapped-tag fibers.",
+      "visualIdentity": {
+        "ageRead": "mid 40s",
+        "build": "heavy broad frame",
+        "silhouette": "thick utility coat with a blocky shoulder line",
+        "wardrobe": "soot-streaked engineer coat, rolled sleeves, heavy work boots",
+        "hair": "cropped dark hair with a rough beard",
+        "accessorySignature": "split leather wrist guard",
+        "props": "canvas tool satchel and insulated gloves",
+        "paletteAccent": "burnt orange sleeve stitching",
+        "poseEnergy": "square planted stance"
+      },
+      "portraitStem": "suspect_00001_",
+      "portraitPromptBase": "relay maintenance engineer, thick utility coat with blocky shoulders, rolled sleeves, heavy work boots, rough beard, split leather wrist guard, canvas tool satchel, burnt orange stitching accent, square planted stance, full body standing"
+    },
+    {
+      "slot": 2,
+      "displayName": "Celia Morrow",
+      "sex": "Female",
+      "occupation": "Night Telegraph Clerk",
+      "nationality": "Scottish",
+      "height": "5'5\"",
+      "weight": "129 lb",
+      "keyPersonalityTrait": "Composed",
+      "dialogue": "I handled outbound confirmations from the side desk. I never opened the relay cage and I never touched the signal key cradle.",
+      "profile": "Age 29, unflappable telegraph clerk who keeps immaculate relay timing notes through long storm shifts.",
+      "motive": "Needed to avoid blame for a delayed outbound confirmation run that jammed the bureau's backlog.",
+      "notes": "Polished presentation and immaculate desk setup contrast sharply with the physical grime at the crime scene.",
+      "visualIdentity": {
+        "ageRead": "late 20s",
+        "build": "slim compact frame",
+        "silhouette": "fitted waistcoat and narrow pencil-skirt line",
+        "wardrobe": "tidy blouse, fitted waistcoat, cuffed gloves, low heels",
+        "hair": "precise black bob tucked behind one ear",
+        "accessorySignature": "pearl ear cuff",
+        "props": "telegram slip folio and fine chain pencil",
+        "paletteAccent": "cool teal neck scarf",
+        "poseEnergy": "still deliberate posture"
+      },
+      "portraitStem": "suspect_00002_",
+      "portraitPromptBase": "night telegraph clerk, fitted waistcoat and narrow skirt silhouette, cuffed gloves, pearl ear cuff, telegram slip folio, cool teal scarf accent, precise black bob, still deliberate posture, full body standing"
+    },
+    {
+      "slot": 3,
+      "displayName": "Tavian Holt",
+      "sex": "Male",
+      "occupation": "Bridge Route Auditor",
+      "nationality": "English",
+      "height": "5'10\"",
+      "weight": "168 lb",
+      "keyPersonalityTrait": "Exacting",
+      "dialogue": "I checked the bridge interval logs from the glass office. If a manual switch happened, it happened outside my ledger pass.",
+      "profile": "Age 38, severe route auditor known for treating every variance like evidence of moral failure.",
+      "motive": "Had reason to hide an unresolved routing discrepancy that could damage his standing with the bureau board.",
+      "notes": "Clean cuffs and rigid timeline help eliminate him despite his access to bridge records.",
+      "visualIdentity": {
+        "ageRead": "late 30s",
+        "build": "lean narrow build",
+        "silhouette": "tall tapered overcoat with straight trouser line",
+        "wardrobe": "charcoal overcoat, buttoned vest, sharp collar, polished shoes",
+        "hair": "neatly parted hair with a trimmed mustache",
+        "accessorySignature": "ivory ledger clip on lapel",
+        "props": "hardcover audit ledger under one arm",
+        "paletteAccent": "pale ivory tie stripe",
+        "poseEnergy": "rigid formal stance"
+      },
+      "portraitStem": "suspect_00003_",
+      "portraitPromptBase": "bridge route auditor, tall tapered overcoat, buttoned vest, trimmed mustache, ivory ledger clip, hardcover audit ledger, pale ivory tie stripe, rigid formal stance, full body standing"
+    },
+    {
+      "slot": 4,
+      "displayName": "Orla Vane",
+      "sex": "Female",
+      "occupation": "Manual Override Supervisor",
+      "nationality": "Irish",
+      "height": "5'9\"",
+      "weight": "151 lb",
+      "keyPersonalityTrait": "Controlled",
+      "dialogue": "I only checked the override cage after the alarm ripple. Any grease on me came from old latch housing near the corridor gate.",
+      "profile": "Age 41, disciplined override supervisor with direct authority over emergency switching procedures and sealed relay access.",
+      "motive": "Needed to hide a clandestine reroute for a private freight favor before the bridge board reviewed the storm diversion.",
+      "notes": "Too quick to explain the grease transfer and the only suspect with a believable path to the swapped relay tag.",
+      "visualIdentity": {
+        "ageRead": "early 40s",
+        "build": "athletic balanced frame",
+        "silhouette": "long belted storm coat with a sharp triangular hem",
+        "wardrobe": "belted supervisor coat, fitted trousers, cuff pouch, tall rubberized boots",
+        "hair": "dark waved hair pinned back from one temple",
+        "accessorySignature": "silver whistle chain across the chest",
+        "props": "rigid dispatch case and folded storm hood",
+        "paletteAccent": "deep crimson lining at the coat split",
+        "poseEnergy": "forward poised stance"
+      },
+      "portraitStem": "suspect_00004_",
+      "portraitPromptBase": "manual override supervisor, long belted storm coat with triangular hem, cuff pouch, tall rubberized boots, silver whistle chain, rigid dispatch case, deep crimson coat lining accent, forward poised stance, full body standing"
+    },
+    {
+      "slot": 5,
+      "displayName": "Nessa Vale",
+      "sex": "Female",
+      "occupation": "Signal Archive Registrar",
+      "nationality": "Welsh",
+      "height": "5'7\"",
+      "weight": "140 lb",
+      "keyPersonalityTrait": "Watchful",
+      "dialogue": "I catalogued retired keys in the archive annex. I wasn't on the relay floor when the bridge alarm shifted.",
+      "profile": "Age 34, observant archive registrar who knows the bureau's key inventory better than anyone on the night team.",
+      "motive": "Could be tempted to conceal a cataloging lapse involving a misfiled retired signal key.",
+      "notes": "Strong access to key records, but no relay grease or spring damage appears on her sleeves or archive satchel.",
+      "visualIdentity": {
+        "ageRead": "mid 30s",
+        "build": "light long-limbed frame",
+        "silhouette": "soft draped archive coat with long scarf trail",
+        "wardrobe": "dusty registrar coat, pleated skirt, slim gloves, low ankle boots",
+        "hair": "long auburn braid over one shoulder",
+        "accessorySignature": "round brass key tag brooch",
+        "props": "flat archive case and key inventory ring",
+        "paletteAccent": "muted saffron scarf accent",
+        "poseEnergy": "cautious inward stance"
+      },
+      "portraitStem": "suspect_00005_",
+      "portraitPromptBase": "signal archive registrar, soft draped archive coat, long auburn braid, brass key tag brooch, flat archive case, muted saffron scarf accent, cautious inward stance, full body standing"
+    }
+  ],
+  "evidence": [
+    {
+      "slot": 1,
+      "title": "Relay Cage Grease Transfer",
+      "description": "A black grease transfer lifted from the opened relay cage matches the fresh smear along Orla's cuff pouch seam.",
+      "discoveryLocation": "Override Relay Cage",
+      "imageStem": "evidence_00001_",
+      "imagePromptBase": "relay cage latch with fresh black grease smear on brushed metal and dark fabric transfer, forensic macro detail, clue communicated only through physical detail"
+    },
+    {
+      "slot": 2,
+      "title": "Broken Retaining Spring",
+      "description": "A snapped retaining spring hidden in Orla's cuff pouch matches the missing spring from the ivory key housing.",
+      "discoveryLocation": "Cuff Pouch Interior",
+      "imageStem": "evidence_00002_",
+      "imagePromptBase": "small broken brass retaining spring beside ivory key housing fragment on evidence tray, investigative macro detail, clue communicated only through physical detail"
+    },
+    {
+      "slot": 3,
+      "title": "Swapped Tag Thread",
+      "description": "Thread from a concealed relay tag is caught in Orla's dispatch case strap and matches fibers at the manual override station.",
+      "discoveryLocation": "Dispatch Case Strap",
+      "imageStem": "evidence_00003_",
+      "imagePromptBase": "dark braided tag thread caught in leather case strap beside relay hardware, close forensic detail, clue communicated only through physical detail"
+    }
+  ]
+}

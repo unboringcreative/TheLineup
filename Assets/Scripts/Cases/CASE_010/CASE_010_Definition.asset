@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d7eb3c794a57b14fa77815382270587, type: 3}
+  m_Name: CASE_010_Definition
+  m_EditorClassIdentifier: Assembly-CSharp::CaseDefinitionSO
+  caseId: CASE_010
+  caseTitle: The Ghost Docket
+  caseDescription: A sealed customs docket disappeared from the midnight adjudication desk minutes before a high-value freight release. Five personnel had access windows, but only one suspect matches the resin smear, torn tamper tape, and rerouted scanner log.
+  locationAddressOrBusiness: Mercado Customs Arbitration Office
+  locationCity: Sao Paulo
+  locationCountry: Brazil
+  featuredImage: {fileID: 21300000, guid: a9f3a10a3e0de834c8366c241af44868, type: 3}
+  instruction: Review all suspect interviews and evidence cards, then accuse the only suspect who aligns with every clue.
+  suspects:
+  - {fileID: 11400000, guid: 4163087a627d959439c811a7a2250004, type: 2}
+  - {fileID: 11400000, guid: 7d5f5090093b1934c82540265d58a54d, type: 2}
+  - {fileID: 11400000, guid: 759e79df7fdec7c49b2a04e237cd0998, type: 2}
+  - {fileID: 11400000, guid: 01e31d6186bae3d4997028dae19274f7, type: 2}
+  - {fileID: 11400000, guid: 87f2e35dae58f1f47b4d1c506026f7ef, type: 2}
+  evidence:
+  - {fileID: 11400000, guid: 4fb95f858f8b98e4d802c42cfc6c6ede, type: 2}
+  - {fileID: 11400000, guid: 6e51e379eb909ca469d31bd2c84ae211, type: 2}
+  - {fileID: 11400000, guid: 2416ff486e85d3d4182456bf7761612d, type: 2}
+  guiltySuspectIndex: 4
+  verdictTitle: Case Conclusion
+  explanation: The guilty suspect is Riven Cole, slot 5. Lane C Scanner Reroute places him at the unauthorized dispatch gap, Sealant Resin Cuff Swab ties his sleeve to the docket sealant, and Torn Tamper Tape Match links his satchel directly to the missing packet seam. Kiro Hahn is the red herring: he heard the scanner chirp and had patrol proximity, but no resin or tamper material connects him to the stolen docket.

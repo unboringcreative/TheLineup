@@ -1,0 +1,26 @@
+{
+  "styleId": "vintage_halftone_heist_v01",
+  "label": "Vintage Halftone Heist",
+  "globalPrefix": "high-detail pulp print illustration, 1970s detective magazine cover energy",
+  "globalSuffix": "rich halftone shading, warm film grain, dramatic color blocking, crisp silhouettes, no text, no watermark",
+  "assetTypes": {
+    "suspect": {
+      "prefix": "full-length suspect portrait, head-to-toe visible, single person, centered framing, shoes visible",
+      "suffix": "expressive noir posing, character-first styling, readable face, period wardrobe detail"
+    },
+    "evidence": {
+      "prefix": "single critical clue, forensic close-up tabletop shot",
+      "suffix": "macro clarity, controlled depth of field, uncluttered composition"
+    },
+    "featured": {
+      "prefix": "establishing crime-scene illustration, no people",
+      "suffix": "storm-lit atmosphere, strong focal contrast, investigative tension"
+    }
+  },
+  "negativePrompts": {
+    "global": "text, logo, watermark, blur, low quality, compression artifacts",
+    "suspect": "multiple people, cropped body, missing feet, extra limbs, malformed hands, duplicate person",
+    "evidence": "multiple unrelated objects, cluttered background, unreadable clue",
+    "featured": "people, crowd, cheerful tone, bright midday sunlight"
+  }
+}
