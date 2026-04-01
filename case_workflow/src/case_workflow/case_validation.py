@@ -10,8 +10,10 @@ from typing import Any
 
 EXPECTED_SUSPECT_COUNT = 5
 EXPECTED_EVIDENCE_COUNT = 3
+EXPECTED_EVIDENCE_ROLES = {"red_herring", "valid", "neutral"}
 NAME_RE = re.compile(r"^[A-Z][a-zA-Z'\-]+(?: [A-Z][a-zA-Z'\-]+)+$")
 TEXTY_IMAGE_RE = re.compile(r"\b(text|label|caption|poster|signage|document text|readable words|legible words)\b", re.IGNORECASE)
+LOCATION_NO_PEOPLE_RE = re.compile(r"\b(?:no|without)\s+(?:people|person|characters?|humans?)\b", re.IGNORECASE)
 
 
 @dataclass
@@ -34,6 +36,8 @@ def validate_case_data(case_data: dict[str, Any], *, strict_quality: bool = Fals
     _require_non_empty_string(case_data, "caseId", result)
     _require_non_empty_string(case_data, "caseTitle", result)
     _require_non_empty_string(case_data, "caseDescription", result)
+    _require_non_empty_string(case_data, "locationImageStem", result)
+    _require_non_empty_string(case_data, "locationImagePromptBase", result)
     _require_non_empty_string(case_data, "featuredImageStem", result)
     _require_non_empty_string(case_data, "featuredImagePromptBase", result)
     _require_non_empty_string(case_data, "instruction", result)
@@ -194,6 +198,18 @@ def _validate_evidence(evidence: list[Any], result: ValidationResult, *, strict_
         for key in ("title", "description", "discoveryLocation", "imageStem", "imagePromptBase"):
             _require_non_empty_string(item, key, result, prefix=f"{prefix}.")
 
+        role = str(item.get("role") or "").strip().lower()
+        if role not in EXPECTED_EVIDENCE_ROLES:
+            result.errors.append(f"{prefix}.role must be one of {sorted(EXPECTED_EVIDENCE_ROLES)}.")
+
+        points_to = item.get("pointsToSuspectSlot")
+        if role in {"red_herring", "valid"}:
+            if not isinstance(points_to, int) or not 1 <= points_to <= EXPECTED_SUSPECT_COUNT:
+                result.errors.append(f"{prefix}.pointsToSuspectSlot must be an integer between 1 and {EXPECTED_SUSPECT_COUNT} for role {role!r}.")
+        elif role == "neutral":
+            if points_to not in (None, 0):
+                result.warnings.append(f"{prefix}.pointsToSuspectSlot should be omitted or 0 for neutral evidence.")
+
         description = str(item.get("description") or "").strip()
         if description and len(description.split()) < 8:
             result.warnings.append(f"{prefix}.description is short; evidence should explain why it matters.")
@@ -209,6 +225,7 @@ def _validate_case_logic(case_data: dict[str, Any], result: ValidationResult, *,
     evidence = case_data.get("evidence") or []
     explanation = str(case_data.get("explanation") or "").strip()
     case_description = str(case_data.get("caseDescription") or "").strip()
+    location_prompt = str(case_data.get("locationImagePromptBase") or "").strip()
     featured_prompt = str(case_data.get("featuredImagePromptBase") or "").strip()
 
     if explanation and "red herring" not in explanation.lower():
@@ -220,6 +237,15 @@ def _validate_case_logic(case_data: dict[str, Any], result: ValidationResult, *,
     if featured_prompt and TEXTY_IMAGE_RE.search(featured_prompt):
         level = result.errors if strict_quality else result.warnings
         level.append("featuredImagePromptBase appears to rely on readable text, which conflicts with image rules.")
+
+    if location_prompt and TEXTY_IMAGE_RE.search(location_prompt):
+        level = result.errors if strict_quality else result.warnings
+        level.append("locationImagePromptBase appears to rely on readable text, which conflicts with image rules.")
+
+    if location_prompt and not LOCATION_NO_PEOPLE_RE.search(location_prompt):
+        result.errors.append(
+            "locationImagePromptBase must explicitly exclude people and characters (for example: 'no people, no characters')."
+        )
 
     guilty_slot = case_data.get("guiltySlot")
     if isinstance(guilty_slot, int) and explanation:
@@ -238,6 +264,24 @@ def _validate_case_logic(case_data: dict[str, Any], result: ValidationResult, *,
             title = str((item or {}).get("title") or "").strip()
             if title and title.lower() not in explanation.lower():
                 result.warnings.append(f"Explanation does not explicitly call back evidence title {title!r}.")
+
+    if evidence:
+        role_counts = Counter(str((item or {}).get("role") or "").strip().lower() for item in evidence)
+        for role in EXPECTED_EVIDENCE_ROLES:
+            if role_counts.get(role, 0) != 1:
+                result.errors.append(f"evidence must include exactly one {role!r} item.")
+
+        guilty_slot = case_data.get("guiltySlot")
+        for item in evidence:
+            role = str((item or {}).get("role") or "").strip().lower()
+            points_to = (item or {}).get("pointsToSuspectSlot")
+            title = str((item or {}).get("title") or "").strip()
+            if role == "valid" and guilty_slot is not None and points_to != guilty_slot:
+                result.errors.append(f"Valid evidence {title!r} must point to guiltySlot {guilty_slot}.")
+            if role == "red_herring" and guilty_slot is not None and points_to == guilty_slot:
+                result.errors.append(f"Red herring evidence {title!r} cannot point to guiltySlot {guilty_slot}.")
+            if role == "neutral" and points_to not in (None, 0):
+                result.warnings.append(f"Neutral evidence {title!r} should not point to a suspect.")
 
 
 def _require_non_empty_string(source: dict[str, Any], key: str, result: ValidationResult, *, prefix: str = "") -> None:

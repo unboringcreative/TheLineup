@@ -1,0 +1,31 @@
+{
+  "styleId": "anime_casefiles_v01",
+  "label": "ANIME",
+  "globalPrefix": "cinematic anime detective illustration, polished 2D thriller atmosphere, expressive line art, confident cel shading",
+  "globalSuffix": "clean silhouette design, dramatic practical lighting, crisp focal clarity, rich environmental color, no text, no watermark",
+  "assetTypes": {
+    "suspect": {
+      "prefix": "full-length suspect portrait, head-to-toe visible, single character, centered framing, shoes visible",
+      "suffix": "readable face, strong pose language, grounded feet, stylish but believable proportions"
+    },
+    "evidence": {
+      "prefix": "single decisive clue, close-up investigative framing",
+      "suffix": "clear material readability, uncluttered composition, tactile object storytelling"
+    },
+    "location": {
+      "prefix": "empty lineup background, no people, no characters",
+      "suffix": "visible floor plane, architectural depth, believable perspective for standing suspects, atmospheric scene design"
+    },
+    "featured": {
+      "prefix": "establishing environment illustration, no people",
+      "suffix": "strong focal lighting, narrative atmosphere, cinematic composition"
+    }
+  },
+  "negativePrompts": {
+    "global": "text, logo, watermark, blurry, muddy composition, low detail, distorted anatomy, flat lighting, cheap mobile game UI",
+    "suspect": "multiple people, cropped body, missing feet, duplicate character, extra limbs, malformed hands, giant head chibi proportions",
+    "evidence": "multiple unrelated objects, cluttered composition, unreadable clue, vague focal point",
+    "location": "people, person, characters, character, crowd, empty void, flat blank wall, unreadable perspective",
+    "featured": "people, crowd, cheerful slice-of-life mood, flat composition"
+  }
+}

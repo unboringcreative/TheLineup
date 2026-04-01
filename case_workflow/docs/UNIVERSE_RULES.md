@@ -34,13 +34,17 @@ This file is the living rulebook for case generation.
    - Bios should feel grounded rather than like shuffled trait cards.
 
 8. Evidence roles should be differentiated.
-   - A strong case usually includes one clue about opportunity or access, one clue about transfer or contact, and one clue about tampering or contradiction.
+   - Every case should include exactly one valid evidence item, one red-herring evidence item, and one neutral evidence item.
+   - The valid evidence should point toward the guilty suspect.
+   - The red herring should point toward the wrong suspect.
+   - The neutral evidence should add context, timing, or atmosphere without directly accusing anyone.
    - Avoid three clues that all say the same thing in different wording.
 
 9. Explanations must close the loop.
    - Name the guilty suspect and slot explicitly.
-   - Explain how each evidence item supports the accusation.
+   - Explain why the valid evidence matters.
    - Identify the red herring and why it fails.
+   - Clarify how the neutral evidence fits the case without becoming an accusation.
 
 10. Tone stays pulp-noir, not supernatural.
     - Atmosphere can be stylized, moody, and heightened.
@@ -59,6 +63,14 @@ This file is the living rulebook for case generation.
 - Keep workplace names specific enough to anchor the scene quickly.
 - Use place details that enrich visual identity without bloating prompts.
 - If the setting is international, the nationality mix should still feel institutionally plausible.
+
+## Location Image Rule
+
+- Each case should include a location image for the suspect lineup background.
+- The location image should show floor plane, wall depth, or architectural structure so suspect portraits feel grounded rather than pasted onto a flat void.
+- Location images can never contain people or characters.
+- Location prompts should explicitly say `no people` and `no characters`.
+- It does not need to be perspective-perfect, but it should feel like a believable place where the lineup could stand.
 
 ## Notes
 

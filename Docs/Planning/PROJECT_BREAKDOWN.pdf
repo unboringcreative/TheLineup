@@ -1,0 +1,598 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R 9 0 R 11 0 R 13 0 R 15 0 R] /Count 6 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Length 2000 >>
+stream
+BT
+/F1 11 Tf
+54 748 Td
+14 TL
+(PROJECT BREAKDOWN) Tj
+T*
+T*
+T*
+(This is a cleaned-up written version of the repo breakdown I gave earlier, saved in a) Tj
+T*
+(durable internal planning spot so it can travel with the project.) Tj
+T*
+T*
+(Core Shape) Tj
+T*
+T*
+T*
+(- The repo is two connected systems:) Tj
+T*
+(  - the Unity game in `Assets/`) Tj
+T*
+(  - the local case-content pipeline in `case_workflow/`) Tj
+T*
+(- That split is already reflected in `README.md` and `Docs/PROJECT_STRUCTURE.md`.) Tj
+T*
+(- The game is built on Unity `6000.4.0f1` with URP, uGUI, the new Input System, and the) Tj
+T*
+(  Unity Test Framework package.) Tj
+T*
+(- Only one gameplay scene is currently in the build: `Assets/Scenes/Game.unity`.) Tj
+T*
+T*
+(Top-Level Structure) Tj
+T*
+T*
+T*
+(- `Assets/`) Tj
+T*
+(  - Unity-authoritative content: scene, runtime scripts, editor tooling, curated case assets,) Tj
+T*
+(    fonts, render settings.) Tj
+T*
+(- `Packages/`) Tj
+T*
+(  - Unity package manifest and lockfile only.) Tj
+T*
+(- `ProjectSettings/`) Tj
+T*
+(  - Player settings, build settings, input settings, render settings, and other project) Tj
+T*
+(    config.) Tj
+T*
+(- `case_workflow/`) Tj
+T*
+(  - The external content pipeline for authoring, validating, rendering, and syncing cases.) Tj
+T*
+(- `Docs/`) Tj
+T*
+(  - Repo-level docs and operational references.) Tj
+T*
+T*
+(Runtime Mental Model) Tj
+T*
+T*
+T*
+(- The de facto application shell is `Assets/Scripts/Cases/CaseScreenController.cs`.) Tj
+T*
+(- That script currently does all of the following:) Tj
+T*
+(  - ensures the controller exists on the scene `Canvas`) Tj
+T*
+(  - auto-binds scene UI by name) Tj
+T*
+(  - applies the selected case data) Tj
+T*
+(  - constructs several overlays dynamically at runtime) Tj
+T*
+(  - handles interviews, evidence popups, verdict flow, case selection, and main menu behavior) Tj
+T*
+(  - applies layout and theme styling to the scene) Tj
+T*
+(- This is the single biggest architectural hotspot in the project.) Tj
+T*
+T*
+(Startup Flow) Tj
+T*
+T*
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 4 0 R >>
+endobj
+6 0 obj
+<< /Length 1802 >>
+stream
+BT
+/F1 11 Tf
+54 748 Td
+14 TL
+T*
+(1. Unity loads `Assets/Scenes/Game.unity`.) Tj
+T*
+(2. `CaseScreenController` ensures it is attached to the active `Canvas`.) Tj
+T*
+(3. `Assets/Scripts/InputSystemEventSystemFix.cs` swaps legacy EventSystem UI input over to) Tj
+T*
+(  `InputSystemUIInputModule`.) Tj
+T*
+(4. `CaseScreenController.OnEnable\(\)` auto-binds UI, ensures runtime overlays exist, and) Tj
+T*
+(  either opens case selection or applies the current case directly.) Tj
+T*
+(5. The current scene config points at `CaseLibrary_Main.asset` and has case selection) Tj
+T*
+(  enabled, while bypassing it in the editor.) Tj
+T*
+T*
+(Runtime Data Model) Tj
+T*
+T*
+T*
+(- Runtime case data is ScriptableObject-driven.) Tj
+T*
+(- Primary data assets:) Tj
+T*
+(  - `Assets/Scripts/Cases/CaseDefinitionSO.cs`) Tj
+T*
+(  - `Assets/Scripts/Cases/SuspectProfileSO.cs`) Tj
+T*
+(  - `Assets/Scripts/Cases/EvidenceProfileSO.cs`) Tj
+T*
+(  - `Assets/Scripts/Cases/CaseLibrarySO.cs`) Tj
+T*
+(- Core shape assumptions are fixed across the runtime and tooling:) Tj
+T*
+(  - exactly 5 suspects) Tj
+T*
+(  - exactly 3 evidence items) Tj
+T*
+(  - 1 guilty suspect slot) Tj
+T*
+T*
+(Frontend / UI Features In The Scene) Tj
+T*
+T*
+T*
+(The game uses one Unity UI scene with multiple panels and runtime-built overlays.) Tj
+T*
+T*
+(Main visible systems:) Tj
+T*
+T*
+(- case selection overlay) Tj
+T*
+(- suspect lineup screen) Tj
+T*
+(- case file / details panel) Tj
+T*
+(- evidence strip with examine behavior) Tj
+T*
+(- suspect interview popup) Tj
+T*
+(- accusation / verdict selection overlay) Tj
+T*
+(- result panel) Tj
+T*
+(- lightweight main menu overlay) Tj
+T*
+T*
+(Important scene objects include:) Tj
+T*
+T*
+(- `Canvas`) Tj
+T*
+(- `TopBar`) Tj
+T*
+(- `MainPanel`) Tj
+T*
+(- `SuspectGrid`) Tj
+T*
+(- `DetailedInfoPanel`) Tj
+T*
+(- `EvidencePanel`) Tj
+T*
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 6 0 R >>
+endobj
+8 0 obj
+<< /Length 1783 >>
+stream
+BT
+/F1 11 Tf
+54 748 Td
+14 TL
+(- `BottomBar`) Tj
+T*
+(- `ResultPanel`) Tj
+T*
+(- `ConfirmButton`) Tj
+T*
+(- `CloseVerdictButton`) Tj
+T*
+(- `EventSystem`) Tj
+T*
+T*
+(Case Content Pipeline) Tj
+T*
+T*
+T*
+(The case workflow is a separate local authoring and rendering pipeline.) Tj
+T*
+T*
+(Canonical flow:) Tj
+T*
+T*
+(1. Author case JSON in `case_workflow/cases/`) Tj
+T*
+(2. Validate content with `case_workflow/validate_case_schema.py`) Tj
+T*
+(3. Build prompt queues via `case_workflow/src/case_workflow/prompt_builder.py`) Tj
+T*
+(4. Render images with `case_workflow/render_case.py`) Tj
+T*
+(5. Emit a Unity import bundle under `Assets/GeneratedCases/to_import/<CASE_ID>`) Tj
+T*
+(6. Sync or import into curated Unity assets using:) Tj
+T*
+(   - `case_workflow/sync_curated_cases.py`) Tj
+T*
+(   - or `Assets/Editor/GeneratedCaseImporter.cs`) Tj
+T*
+(7. Verify the case in the Unity scene) Tj
+T*
+T*
+(Source Of Truth And Curated Content) Tj
+T*
+T*
+T*
+(- The authoring source of truth is JSON in `case_workflow/cases/`.) Tj
+T*
+(- The generated import bundle in `Assets/GeneratedCases/to_import/` is staging output, not) Tj
+T*
+(  authoritative source content.) Tj
+T*
+(- Curated in-project Unity case assets currently live under `Assets/Scripts/Cases/CASE_*`.) Tj
+T*
+(- Current curated set appears to be `CASE_009` through `CASE_014`.) Tj
+T*
+T*
+(Tooling And Stack) Tj
+T*
+T*
+T*
+(### Unity Side) Tj
+T*
+T*
+(- Unity 6 / `6000.4.0f1`) Tj
+T*
+(- uGUI, not UIToolkit) Tj
+T*
+(- Universal Render Pipeline) Tj
+T*
+(- Input System package installed) Tj
+T*
+(- Unity Test Framework package installed, though practical test coverage is thin) Tj
+T*
+T*
+(### Python Pipeline Side) Tj
+T*
+T*
+(- Python `>=3.10`) Tj
+T*
+(- Reusable Python modules live in `case_workflow/src/case_workflow/`) Tj
+T*
+(- Primary modules:) Tj
+T*
+ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 8 0 R >>
+endobj
+10 0 obj
+<< /Length 1683 >>
+stream
+BT
+/F1 11 Tf
+54 748 Td
+14 TL
+(  - `paths.py`) Tj
+T*
+(  - `case_validation.py`) Tj
+T*
+(  - `prompt_builder.py`) Tj
+T*
+(- Rendering stack includes local-only model loading through `torch`, `diffusers`, and) Tj
+T*
+(  optional background removal tooling) Tj
+T*
+T*
+(### Experimental / Supporting Tools) Tj
+T*
+T*
+(- `case_workflow/gradio_flux2_studio.py` provides a local manual image-generation UI) Tj
+T*
+(- Qwen and FLUX-related scripts/docs exist, but they are clearly auxiliary to the main) Tj
+T*
+(  shipped runtime) Tj
+T*
+T*
+(Major Strengths) Tj
+T*
+T*
+T*
+(- Clear conceptual split between runtime game and authoring pipeline) Tj
+T*
+(- Strong data-driven direction through ScriptableObjects and case JSON) Tj
+T*
+(- Solid content rule thinking in `case_workflow/docs/CASE_SCHEMA.md` and) Tj
+T*
+(  `case_workflow/docs/UNIVERSE_RULES.md`) Tj
+T*
+(- Curated case workflow already exists end-to-end) Tj
+T*
+(- The project is still small enough to understand and improve without fighting extreme scale) Tj
+T*
+T*
+(Major Risks And Hotspots) Tj
+T*
+T*
+T*
+(### 1. `CaseScreenController` Is Too Large) Tj
+T*
+T*
+(`Assets/Scripts/Cases/CaseScreenController.cs` is a monolith that mixes:) Tj
+T*
+T*
+(- startup behavior) Tj
+T*
+(- UI binding) Tj
+T*
+(- layout rules) Tj
+T*
+(- theming) Tj
+T*
+(- popup creation) Tj
+T*
+(- gameplay flow) Tj
+T*
+(- data application) Tj
+T*
+(- verdict logic) Tj
+T*
+T*
+(That makes it the highest-value refactor target.) Tj
+T*
+T*
+(### 2. String-Name Scene Binding Is Brittle) Tj
+T*
+T*
+(The runtime relies heavily on recursive name lookups like `FindDeep\("TopBar"\)` and) Tj
+T*
+(object-name matching.) Tj
+T*
+T*
+(Risks:) Tj
+T*
+T*
+(- scene renames can break behavior quietly) Tj
+T*
+ET
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 10 0 R >>
+endobj
+12 0 obj
+<< /Length 1946 >>
+stream
+BT
+/F1 11 Tf
+54 748 Td
+14 TL
+(- duplicate names can cause ambiguous binding) Tj
+T*
+(- onboarding becomes slower because correctness depends on scene naming discipline) Tj
+T*
+T*
+(### 3. Code-Generated UI Is Useful But Hard To Maintain) Tj
+T*
+T*
+(Several overlays and panels are created entirely in code. That is fast for iteration, but it) Tj
+T*
+(makes polish, reuse, and designer-facing edits harder than prefab-driven UI.) Tj
+T*
+T*
+(### 4. Curated Sync Is Powerful But Brittle) Tj
+T*
+T*
+(`case_workflow/sync_curated_cases.py` directly writes Unity YAML and hardcodes the active) Tj
+T*
+(curated case list.) Tj
+T*
+T*
+(That gives strong control, but it also means:) Tj
+T*
+T*
+(- assumptions are easy to break) Tj
+T*
+(- metadata drift is possible) Tj
+T*
+(- small format changes can become painful) Tj
+T*
+T*
+(### 5. Machine-Local Path Assumptions Exist) Tj
+T*
+T*
+(`case_workflow/src/case_workflow/paths.py` still carries Windows-drive defaults like) Tj
+T*
+(`E:\\models\\diffusers` and `I:\\models\\Lora`.) Tj
+T*
+T*
+(That is partially softened by env vars, but portability is still weaker than it should be.) Tj
+T*
+T*
+(### 6. Shipping Metadata Still Has Template Leftovers) Tj
+T*
+T*
+(`ProjectSettings/ProjectSettings.asset` still uses template-style values such as:) Tj
+T*
+T*
+(- `DefaultCompany`) Tj
+T*
+(- default application identifiers) Tj
+T*
+T*
+(This is small, but it is a clear shipping-readiness cleanup item.) Tj
+T*
+T*
+(### 7. Test Coverage Is Light) Tj
+T*
+T*
+(- Unity tests: package installed, but no meaningful gameplay test suite found) Tj
+T*
+(- Python tests: present, but mostly smoke or utility scripts rather than robust automated) Tj
+T*
+(  regression coverage) Tj
+T*
+T*
+(Best Immediate Improvement Targets) Tj
+T*
+T*
+T*
+(If the goal is to unlock faster, safer progress, the highest-leverage next steps are:) Tj
+T*
+T*
+(1. Break up `Assets/Scripts/Cases/CaseScreenController.cs`) Tj
+T*
+(2. Replace or reduce name-based scene binding) Tj
+T*
+ET
+endstream
+endobj
+13 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 12 0 R >>
+endobj
+14 0 obj
+<< /Length 1947 >>
+stream
+BT
+/F1 11 Tf
+54 748 Td
+14 TL
+(3. Add real runtime persistence and progression) Tj
+T*
+(4. Strengthen validation, testing, and import reporting) Tj
+T*
+(5. Clean template metadata and machine-specific assumptions) Tj
+T*
+T*
+(Working Mental Model Going Forward) Tj
+T*
+T*
+T*
+(When making changes in this project, the right frame is:) Tj
+T*
+T*
+(- authored case JSON is the narrative/content source of truth) Tj
+T*
+(- curated Unity assets are the shipped runtime representation) Tj
+T*
+(- `CaseScreenController` is currently the gameplay shell, but it should not stay the) Tj
+T*
+(  long-term architecture) Tj
+T*
+(- the best future direction is a cleaner split between:) Tj
+T*
+(  - case loading/data validation) Tj
+T*
+(  - gameplay flow) Tj
+T*
+(  - UI presentation) Tj
+T*
+(  - persistence/progression) Tj
+T*
+(  - content authoring/import tooling) Tj
+T*
+T*
+(Recommended Reading Order For Future Work) Tj
+T*
+T*
+T*
+(1. `README.md`) Tj
+T*
+(2. `Docs/PROJECT_STRUCTURE.md`) Tj
+T*
+(3. `case_workflow/docs/PROCESS.md`) Tj
+T*
+(4. `Assets/Scripts/Cases/CaseScreenController.cs`) Tj
+T*
+(5. `Assets/Scripts/Cases/CaseDefinitionSO.cs`) Tj
+T*
+(6. `Assets/Scripts/Cases/SuspectProfileSO.cs`) Tj
+T*
+(7. `Assets/Scripts/Cases/EvidenceProfileSO.cs`) Tj
+T*
+(8. `Assets/Editor/GeneratedCaseImporter.cs`) Tj
+T*
+(9. `case_workflow/src/case_workflow/case_validation.py`) Tj
+T*
+(10. `case_workflow/src/case_workflow/prompt_builder.py`) Tj
+T*
+(11. `case_workflow/render_case.py`) Tj
+T*
+(12. `case_workflow/sync_curated_cases.py`) Tj
+T*
+T*
+(Short Take) Tj
+T*
+T*
+T*
+(This is already a compelling small project with a good core concept and a real authoring) Tj
+T*
+(pipeline. The main limitations are structural, not conceptual: the runtime shell is) Tj
+T*
+(over-concentrated, the UI binding is brittle, and the testing/operational layer needs) Tj
+T*
+(reinforcement. Those are fixable, and the project is still at a size where strong cleanup) Tj
+T*
+(work will pay off quickly.) Tj
+T*
+ET
+endstream
+endobj
+15 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 14 0 R >>
+endobj
+xref
+0 16
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000154 00000 n 
+0000000224 00000 n 
+0000002276 00000 n 
+0000002402 00000 n 
+0000004256 00000 n 
+0000004382 00000 n 
+0000006217 00000 n 
+0000006343 00000 n 
+0000008079 00000 n 
+0000008207 00000 n 
+0000010206 00000 n 
+0000010334 00000 n 
+0000012334 00000 n 
+trailer
+<< /Size 16 /Root 1 0 R >>
+startxref
+12462
+%%EOF

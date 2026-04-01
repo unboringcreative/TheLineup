@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d7eb3c794a57b14fa77815382270587, type: 3}
+  m_Name: CASE_016_Definition
+  m_EditorClassIdentifier: Assembly-CSharp::CaseDefinitionSO
+  caseId: CASE_016
+  caseTitle: The Vermilion Platform Seal
+  caseDescription: The vermilion dispatch seal for Higashi Loop Operations Annex vanished after an overnight timetable audit, and a reroute envelope disappeared with it. Five staff members remained inside the mezzanine control wing, but only one suspect survives the logic of the true clue, the planted red herring, and the neutral timing detail.
+  locationAddressOrBusiness: Higashi Loop Operations Annex
+  locationCity: Osaka
+  locationCountry: Japan
+  locationImage: {fileID: 21300000, guid: 093f9d3dc3a1469fa43a2520b3d06aab, type: 3}
+  featuredImage: {fileID: 21300000, guid: 29d6db1b573f4c3c84e0cbfbbf72aaeb, type: 3}
+  suspects:
+  - {fileID: 11400000, guid: a1325485801e4edaa540611e341eb4ea, type: 2}
+  - {fileID: 11400000, guid: 69d9595027d0418a9d0ab7be880cfcd3, type: 2}
+  - {fileID: 11400000, guid: 00e3a4fee26746fab2414c3e59990a1f, type: 2}
+  - {fileID: 11400000, guid: 6ce31358b5734c61abb1f87aaf06f774, type: 2}
+  - {fileID: 11400000, guid: 53e31f2263dd4718b1878bf2ba151899, type: 2}
+  evidence:
+  - {fileID: 11400000, guid: cf2d2aa5ad5a4730b0cb4979041a912a, type: 2}
+  - {fileID: 11400000, guid: 719ea45b6b1a4c12a3a0b3d504c475c2, type: 2}
+  - {fileID: 11400000, guid: 6011d51f3c9e4e878d63bf26b89e47b9, type: 2}
+  guiltySuspectIndex: 3
+  verdictTitle: Case Conclusion
+  explanation: The guilty suspect is Haruto Shindo, slot 4. The valid evidence is Vermilion Wax Fold, which places Haruto at the dispatch cabinet after the audit because the same vermilion security wax used on the missing reroute envelope is pressed into the inner fold of his dispatch folio. Copper Relay Smear is the red herring: it points toward Kenji Arai because he works daily with copper contact grease on the signal relays, so that transfer comes from routine maintenance rather than the theft. Timetable Dust Gap is neutral evidence; it proves the schedule strip was swapped later than the suspects claimed and narrows the time window, but it does not accuse anyone by itself. Haruto had custody over the reroute paperwork, lied about staying at the dispatch desk, and is the only suspect consistent with the wax transfer, motive, and narrowed timeline.

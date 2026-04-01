@@ -1,0 +1,31 @@
+{
+  "styleId": "surrealism_casefiles_v01",
+  "label": "SURREALISM",
+  "globalPrefix": "Dali-esque surrealist detective painting, dream logic noir, uncanny metaphysical architecture, elongated shadow design, liquid reflections, symbolic color atmosphere",
+  "globalSuffix": "metaphysical stillness, highly readable composition, dramatic lighting, tactile painted texture, strong silhouette clarity, no text, no watermark",
+  "assetTypes": {
+    "suspect": {
+      "prefix": "full-length suspect portrait, head-to-toe visible, single character, centered framing, shoes visible",
+      "suffix": "expressive posture, readable face, grounded feet, elegant surreal elongation without deformation"
+    },
+    "evidence": {
+      "prefix": "single decisive clue object, close investigative framing",
+      "suffix": "clear object readability, symbolic mood, uncanny material poetry, uncluttered composition"
+    },
+    "location": {
+      "prefix": "empty metaphysical environment plate, unoccupied central floor area, blank display panels, no people, no characters, no human figures, no silhouettes, no passengers, no staff, architecture only",
+      "suffix": "strong floor plane, layered architectural depth, environment-only scene, dreamlike perspective, melting reflective surfaces, blank signage, no letters, no numbers, no words"
+    },
+    "featured": {
+      "prefix": "establishing surreal environment illustration, no people",
+      "suffix": "narrative atmosphere, strong focal lighting, cinematic worldbuilding, surreal symbolic staging"
+    }
+  },
+  "negativePrompts": {
+    "global": "text, logo, watermark, blurry, muddy composition, low detail, flat lighting, cheap CGI, readable words, letters, numbers",
+    "suspect": "multiple people, cropped body, missing feet, duplicate character, extra limbs, malformed hands, giant head proportions",
+    "evidence": "multiple unrelated objects, cluttered composition, unreadable clue, weak focal point",
+    "location": "people, person, characters, character, human figure, silhouette, passengers, staff, crowd, readable signage, poster, timetable text, letters, numbers, words, glyphs, symbols resembling text, captions, labels, subtitles",
+    "featured": "people, crowd, cheerful comedy tone, flat composition"
+  }
+}

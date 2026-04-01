@@ -1,0 +1,31 @@
+{
+  "styleId": "claymation_casefiles_v01",
+  "label": "CLAYMATION!",
+  "globalPrefix": "handcrafted stop-motion claymation diorama, tactile plasticine surfaces, miniature set photography feel, moody detective anthology atmosphere",
+  "globalSuffix": "hand-shaped clay texture, expressive sculpted material detail, readable silhouette design, cinematic practical lighting, no text, no watermark",
+  "assetTypes": {
+    "suspect": {
+      "prefix": "full-length suspect puppet portrait, head-to-toe visible, single character, centered framing, shoes visible",
+      "suffix": "readable face, grounded feet, armature-stable pose, hand-sculpted wardrobe detail"
+    },
+    "evidence": {
+      "prefix": "single handcrafted clue prop, macro forensic stop-motion framing",
+      "suffix": "clear clue readability, tactile material contrast, uncluttered composition"
+    },
+    "location": {
+      "prefix": "empty lineup location diorama, no people, no characters",
+      "suffix": "visible floor plane, believable miniature depth, practical standing space for five suspects, handcrafted environmental storytelling"
+    },
+    "featured": {
+      "prefix": "establishing miniature diorama scene, no people",
+      "suffix": "strong focal lighting, moody narrative atmosphere, handcrafted set detail"
+    }
+  },
+  "negativePrompts": {
+    "global": "text, logo, watermark, blurry, muddy composition, low detail, photoreal human skin, glossy CGI, cheap toy packaging",
+    "suspect": "multiple people, cropped body, missing feet, duplicate character, extra limbs, malformed hands, floating figure, chibi proportions",
+    "evidence": "messy composition, multiple unrelated objects, unreadable clue, flat lighting",
+    "location": "people, crowd, empty void, flat blank backdrop, floating horizon, unreadable perspective",
+    "featured": "people, crowd, bright cheerful daylight, toy packaging, flat composition"
+  }
+}

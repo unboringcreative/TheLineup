@@ -1,0 +1,290 @@
+TYPE,CONTENT,DESCRIPTION,PRIORITY,INDENT
+"section","Foundation / Must-do first","","",""
+"task","Define a shippable vertical slice","Pick the exact experience that proves the game is fun, polished, and marketable.",4,1
+"task","Choose the 3 best current cases for the vertical slice","Use the strongest curated cases as the benchmark set.",4,2
+"task","Polish those 3 cases to gold-standard quality","Tighten logic, art consistency, pacing, and explanations.",4,2
+"task","Create a vertical-slice release checklist","Make one reusable checklist for readiness, QA, and presentation.",3,2
+"task","Refactor the monolithic game controller","Primary target: Assets\\Scripts\\Cases\\CaseScreenController.cs",4,1
+"task","Split CaseScreenController into focused controllers","Separate case flow, evidence UI, interviews, verdicts, menus, and case select.",4,2
+"task","Move runtime-built overlays into prefabs","Reduce code-generated UI where practical.",4,2
+"task","Replace deep name-based scene binding","Prefer serialized references or safer binding helpers.",4,2
+"task","Add persistence and progression","Create real save-state for player progress and preferences.",4,1
+"task","Save completed cases and unlocked cases","Track what the player has finished and what opens next.",4,2
+"task","Save best score, rank, hints used, and wrong accusations","Support replayability and mastery.",3,2
+"task","Save settings","Persist audio, accessibility, and input preferences.",3,2
+"task","Finalize project identity and shipping metadata","ProjectSettings\\ProjectSettings.asset still contains template leftovers.",4,1
+"task","Replace DefaultCompany and default application identifiers","Set production-ready company and app identifiers.",4,2
+"task","Set product icons, splash, and versioning policy","Make build metadata feel intentional.",3,2
+"task","Create a naming and version convention","Apply to builds, cases, styles, and content packs.",2,2
+
+"section","Gameplay & Deduction","","",""
+"task","Strengthen the core deduction loop","Make solving a case feel richer than one final click.",4,1
+"task","Add case scoring and rank calculation","Grade speed, accuracy, hints-used, and wrong accusations.",4,2
+"task","Add a final review screen before accusation","Let players inspect evidence and confirm their reasoning.",4,2
+"task","Add a case-complete breakdown","Show why each suspect was plausible and why the culprit fits.",4,2
+"task","Add a player notebook or notes panel","Let players jot down or pin reasoning in-game.",3,2
+"task","Improve suspect interaction depth","Suspects should feel like active puzzle pieces, not static cards.",4,1
+"task","Add follow-up interview questions","Give the player a limited way to probe contradictions.",4,2
+"task","Add a compare-suspects view","Let players compare two suspects side by side.",3,2
+"task","Add contradiction surfacing","Highlight when testimony conflicts with evidence or timeline.",4,2
+"task","Improve evidence interaction","Evidence should feel inspectable and strategically useful.",4,1
+"task","Add an evidence board","Allow grouping clues visually by suspect or theory.",4,2
+"task","Let players pin evidence to suspects","Support deduction with explicit linking.",3,2
+"task","Add zoom inspect for evidence","Make clue art feel more tactile and important.",3,2
+"task","Allow favorites or bookmarks","Let players mark the clues they think matter most.",2,2
+"task","Add a hint system that preserves challenge","Hints should help without solving the case instantly.",4,1
+"task","Design tiered hints","Gentle nudge, stronger clue, near-direct steer.",4,2
+"task","Apply score penalties for hint use","Keep mastery runs meaningful.",3,2
+"task","Limit hint usage per case or mode","Prevent brute-force hint spam.",3,2
+"task","Add difficulty and replayability layers","Support both casual and hardcore players.",4,1
+"task","Rate each case by difficulty","Tag cases by complexity and expected solve time.",3,2
+"task","Add daily case or featured case mode","Create a regular reason to return.",3,2
+"task","Add weekly challenge modifiers","Examples: no hints, timed, single review pass.",3,2
+"task","Randomize suspect order safely","Increase replay variety without breaking logic.",2,2
+"task","Build meta progression around solving cases","Give players long-term goals beyond single-case wins.",3,1
+"task","Add detective rank or career progression","Reward consistent performance.",3,2
+"task","Unlock harder cases and anthologies over time","Create forward pull through the catalog.",3,2
+"task","Add a solved-case archive wall","Turn progress into something visible and satisfying.",2,2
+
+"section","UX, Menus, Accessibility & Input","","",""
+"task","Build a real main menu","Current menu behavior is minimal and should become a proper front door.",4,1
+"task","Add Play, Continue, Case Select, Settings, Credits, and Quit","Cover the expected game shell basics.",4,2
+"task","Add transitions into and out of gameplay","Make starting a case feel premium.",3,2
+"task","Improve text readability everywhere","Long-form reading is core to the experience.",4,1
+"task","Add text size options","Support normal, large, and extra-large sizes.",4,2
+"task","Use proper scroll areas for long text","Especially interviews, explanations, and case file text.",4,2
+"task","Improve spacing and hierarchy","Strengthen headline/body/secondary text rhythm.",3,2
+"task","Do a full accessibility pass","Make the game easier to read and navigate for more players.",4,1
+"task","Add high-contrast mode","Improve legibility and UI separation.",4,2
+"task","Add reduced-motion mode","Tone down transitions and movement effects.",3,2
+"task","Add colorblind-safe clue presentation","Avoid meaning carried only by color.",4,2
+"task","Add dyslexia-friendly font option","Offer an alternate reading mode.",3,2
+"task","Clean up input and navigation","Rationalize current input setup and improve flow.",4,1
+"task","Make controller navigation first-class","Ensure every screen is navigable without a mouse.",4,2
+"task","Add keyboard shortcuts for power users","Examples: close, inspect, compare, accuse.",2,2
+"task","Unify legacy input and new Input System usage","Review Assets\\InputSystem_Actions.inputactions, ProjectSettings\\InputManager.asset, and Assets\\Scripts\\InputSystemEventSystemFix.cs",4,2
+"task","Add onboarding and tutorialization","Teach the player how to think in this game.",4,1
+"task","Create a guided first-case flow","Introduce suspects, evidence roles, and accusation flow.",4,2
+"task","Add contextual tooltips or helper text","Explain interviews, evidence, and ranking clearly.",3,2
+"task","Teach the meaning of valid clue, red herring, and neutral clue through play","Make the rules legible through the UI and first cases.",3,2
+
+"section","Visuals, Art Direction & Polish","","",""
+"task","Lock the game’s art direction bible","Define the visual north star for shipped content.",4,1
+"task","Choose 3 to 5 house visual styles","Keep variety while preserving brand cohesion.",4,2
+"task","Document palette, lighting, framing, and silhouette rules","Use the same standards across future content.",4,2
+"task","Create exemplar boards for suspect, evidence, location, and featured art","Make review faster and more objective.",3,2
+"task","Polish the case selection screen","Turn it into a browsing experience, not just a list.",4,1
+"task","Improve case cards and featured art presentation","Show difficulty, completion status, and rewards cleanly.",4,2
+"task","Add solved, locked, and medal badges","Make progression visible in selection UI.",3,2
+"task","Add motion and transition polish","Good transitions can make the game feel much more expensive.",3,1
+"task","Add panel fades and slides","Use restrained motion to guide attention.",3,2
+"task","Create a dramatic accusation reveal sequence","Build tension and payoff.",4,2
+"task","Improve hover, pressed, focus, and selected states","Especially for suspects, evidence, and buttons.",3,2
+"task","Improve suspect presentation quality","Each suspect should be readable and memorable instantly.",4,1
+"task","Enforce silhouette consistency and stronger variety","Avoid suspects blending together.",4,2
+"task","Increase pose variety while preserving clarity","Avoid everyone feeling equally staged.",3,2
+"task","Add per-case visual tinting or atmosphere","Let each case feel like its own episode.",3,2
+"task","Improve evidence presentation quality","Evidence should feel premium and clue-like.",4,1
+"task","Design forensic/evidence framing UI","Give evidence its own visual treatment.",3,2
+"task","Standardize crop and composition rules for evidence art","Keep readability high.",3,2
+"task","Create theme variants per case","Use case-specific palettes or accents in runtime UI.",3,1
+"task","Theme the result screen by case","Make endings feel bespoke.",2,2
+"task","Theme backgrounds and overlays by setting","Support theatre, station, hotel, archive, etc.",2,2
+
+"section","Audio","","",""
+"task","Add a complete music system","Audio will dramatically improve mood and perceived production value.",4,1
+"task","Create a main menu theme","Establish tone immediately.",3,2
+"task","Create a default in-case loop","Support reading and deduction without fatigue.",4,2
+"task","Add result stings for correct and wrong accusations","Increase payoff and emotional contrast.",4,2
+"task","Add a full UI sound pass","Make every interaction feel intentional.",4,1
+"task","Add hover, click, open, close, and inspect sounds","Cover all common UI states.",3,2
+"task","Add suspect select and evidence inspect sounds","Reinforce interaction semantics.",3,2
+"task","Add accusation-specific sound design","Build dread and finality.",4,2
+"task","Add ambience by location","Support case atmosphere and setting identity.",3,1
+"task","Create subtle room tone and environment loops","Examples: theatre hush, station hum, hotel ventilation.",3,2
+"task","Layer ambience with music cleanly","Avoid muddy mixes during reading-heavy moments.",2,2
+"task","Add audio settings","Basic audio UX should exist before shipping.",4,1
+"task","Add sliders for music, SFX, and ambience","Support player preference and streamer friendliness.",4,2
+"task","Add mute toggles and defaults","Let players tailor the experience quickly.",3,2
+
+"section","Content Pipeline & Case Production","","",""
+"task","Strengthen case validation rules","Primary target: case_workflow\\src\\case_workflow\\case_validation.py",4,1
+"task","Validate unique suspect voices and speech cadence","Prevent suspects from sounding interchangeable.",4,2
+"task","Validate means, motive, and opportunity coverage","Ensure explanations are satisfying and fair.",4,2
+"task","Validate red herring quality and defeasibility","Red herrings should be compelling but breakable.",4,2
+"task","Validate explanation completeness","Require explanation to account for all evidence clearly.",4,2
+"task","Formalize style templates as a true system","Make styles reusable, reviewable, and versioned.",4,1
+"task","Define a style schema and naming convention","Apply consistent IDs, labels, and versioning.",3,2
+"task","Build a small approved house-style library","Ship a manageable set of high-confidence looks.",3,2
+"task","Create style QA examples","Show good vs bad outputs for each asset type.",2,2
+"task","Improve prompt-building quality","Primary target: case_workflow\\src\\case_workflow\\prompt_builder.py",3,1
+"task","Reduce repetitive style language in prompts","Avoid overcooked or muddy renders.",3,2
+"task","Add per-asset prompt linting","Flag risky wording, missing full-body framing, or clutter.",3,2
+"task","Separate content meaning from visual style more cleanly","Keep prompts modular and easier to tune.",2,2
+"task","Add render quality-control tools","Catch visual problems before import.",4,1
+"task","Generate contact sheets for every case render batch","Make review quick and visual.",4,2
+"task","Add missing-image and wrong-stem checks","Catch pipeline breaks early.",4,2
+"task","Add crop, feet visibility, and composition checks","Especially for suspect portraits.",3,2
+"task","Harden sync and import workflows","Primary targets: Assets\\Editor\\GeneratedCaseImporter.cs and case_workflow\\sync_curated_cases.py",4,1
+"task","Add a dry-run mode for sync/import","Preview what will change before mutating assets manually.",4,2
+"task","Add a post-import report","Summarize imported assets, warnings, and missing references.",3,2
+"task","Detect duplicate, missing, or mismatched asset references","Reduce brittle failures.",4,2
+"task","Build authoring templates and checklists","Make new cases easier to create well.",3,1
+"task","Create a new-case template","Include narrative, suspect, evidence, and prompt starters.",3,2
+"task","Create a content review checklist","Use before importing any case into Unity.",3,2
+"task","Create an art review checklist","Standardize final approval for image quality.",3,2
+"task","Create a case catalog strategy","Plan variety and cadence intentionally.",3,1
+"task","Map settings and themes for the next 20 cases","Avoid overusing one location archetype.",2,2
+"task","Balance easy, medium, and hard cases across the catalog","Support a smoother difficulty curve.",3,2
+"task","Plan anthology packs","Examples: Theatre Crimes, Terminal Nights, Hotel Scandals.",2,2
+
+"section","Runtime Architecture & Code Quality","","",""
+"task","Split runtime responsibilities into clear systems","Current architecture is too concentrated in one file.",4,1
+"task","Create CaseFlowController","Own start, accusation, result, and progression flow.",4,2
+"task","Create CaseSelectionController","Own case browsing and loading behavior.",4,2
+"task","Create InterviewPopupController and EvidencePanelController","Separate presentation concerns.",4,2
+"task","Create VerdictController and ResultPanelController","Make accusation logic and UI easier to test.",4,2
+"task","Introduce a clean runtime domain model","Don’t let ScriptableObjects be the whole runtime architecture.",3,1
+"task","Map ScriptableObject data into plain runtime data","Reduce coupling between storage and UI.",3,2
+"task","Validate case data on load","Fail loudly and clearly in dev builds.",4,2
+"task","Isolate data loading from presentation","Keep UI code simpler and safer.",3,2
+"task","Reorganize the Assets folder","Current code/data mix is workable but messy.",3,1
+"task","Move case data assets out of Assets\\Scripts\\Cases\\CASE_*","Separate code from content.",4,2
+"task","Create clearer folders for Data, UI, Prefabs, and Art","Make onboarding easier.",3,2
+"task","Standardize naming conventions","Reduce ambiguity across scenes and assets.",2,2
+"task","Add basic service or event layers","Make cross-cutting systems easier to manage.",3,1
+"task","Create a save service","Centralize persistence logic.",4,2
+"task","Create an audio service","Centralize music and SFX control.",3,2
+"task","Create a transition or screen service","Keep scene flow and overlays consistent.",2,2
+"task","Improve fallbacks and failure handling","Guard the game against incomplete content.",4,1
+"task","Add missing-image fallbacks","Prevent broken UI when assets are incomplete.",4,2
+"task","Add missing-font or UI-style fallbacks","Avoid invisible or ugly text failures.",3,2
+"task","Add invalid-case guardrails","Refuse to load malformed cases cleanly in dev.",4,2
+"task","Remove placeholder and fragile UX text","A few placeholders still exist and should be eliminated.",3,1
+"task","Replace suspect dialogue placeholders","Relevant files include Assets\\Scripts\\Cases\\SuspectProfileSO.cs and CaseScreenController.cs",3,2
+"task","Audit any remaining placeholder labels or copy","Keep shipped content polished.",2,2
+"task","Rationalize input setup fully","Make the new Input System authoritative.",4,1
+"task","Confirm InputSystemUIInputModule boot path is stable","Relevant file: Assets\\Scripts\\InputSystemEventSystemFix.cs",3,2
+"task","Remove legacy dependence where safe","Reduce future confusion and bugs.",3,2
+
+"section","Testing & QA","","",""
+"task","Add Unity play mode tests","The core case loop should be automated at least lightly.",4,1
+"task","Test case loading","Verify all mandatory UI and data bind correctly.",4,2
+"task","Test verdict correctness and wrong-answer handling","Protect the core gameplay promise.",4,2
+"task","Test overlay open/close behavior","Prevent common UI regressions.",3,2
+"task","Add Unity edit mode tests","Cover data and helper logic outside live gameplay.",3,1
+"task","Test ScriptableObject validation","Catch missing required fields earlier.",3,2
+"task","Test scene binding and utility helpers","Especially if name-based binding remains temporarily.",3,2
+"task","Add real Python automated tests","Current tests lean smoke-script heavy.",4,1
+"task","Add validator unit tests","Protect content rules from regressions.",4,2
+"task","Add prompt-builder tests","Keep render manifests stable.",3,2
+"task","Add sync/import snapshot tests","Protect YAML/asset generation assumptions.",3,2
+"task","Create a formal content QA workflow","Quality should not rely on memory and taste alone.",4,1
+"task","Make a case review form","Track fairness, clarity, and satisfaction.",4,2
+"task","Make an art review form","Track composition, readability, and style fit.",3,2
+"task","Make an explanation review pass","Ensure endings feel earned and understandable.",3,2
+"task","Establish regular playtesting","Observe actual players solving cases.",4,1
+"task","Run blind playtests on new cases","Watch confusion points and dead ends.",4,2
+"task","Track failure points and iterate","Turn observations into concrete fixes.",4,2
+"task","Build a lightweight QA bug template","Standardize reproduction steps and severity.",2,2
+"task","Profile performance and scalability","Keep the game smooth as the catalog grows.",3,1
+"task","Profile UI rebuilds and layout costs","Especially in large or dynamic panels.",3,2
+"task","Profile memory use for bigger case libraries","Plan ahead for future growth.",2,2
+"task","Check WebGL viability if that platform matters","Validate build size, memory, and loading behavior.",2,2
+
+"section","Build, Release & Operations","","",""
+"task","Clean and finalize build profiles","Make dev and release paths explicit and trustworthy.",4,1
+"task","Confirm Windows build profile settings","Ensure shipping defaults make sense.",4,2
+"task","Review Web build profile strategy","Decide if WebGL is demo-only or a real platform.",3,2
+"task","Separate development and release expectations","Avoid shipping with accidental debug-oriented defaults.",3,2
+"task","Add basic CI or automation","Even a small project benefits from routine checks.",3,1
+"task","Run schema validation automatically","Catch broken case content early.",4,2
+"task","Run Python tests in automation","Keep the pipeline dependable.",3,2
+"task","Add lint or formatting checks where practical","Reduce noisy diff churn.",2,2
+"task","Improve debug logging and operational visibility","Make diagnosis faster during development.",3,1
+"task","Add clearer dev logging around case load and import","Surface the right warnings at the right time.",3,2
+"task","Show friendlier error states in dev builds","Help debugging without hunting logs.",2,2
+"task","Document a canonical content pipeline","One source of truth for the whole team or future-you.",4,1
+"task","Document validate -> render -> sync -> import","Use one official workflow.",4,2
+"task","Document local environment expectations","Reduce setup pain and path confusion.",3,2
+"task","Prepare a real release process","Shipping should become repeatable.",3,1
+"task","Create a changelog workflow","Track product evolution cleanly.",2,2
+"task","Create a release checklist","Cover QA, build, store text, screenshots, and smoke tests.",3,2
+"task","Define versioning rules","Use a simple semantic or milestone-based system.",2,2
+"task","Decide platform strategy explicitly","Don’t accidentally support too many targets at once.",3,1
+"task","Choose primary launch platform","Likely Windows/Steam first unless strategy changes.",3,2
+"task","Decide whether to ship a web demo","Useful for marketing if feasible.",2,2
+"task","Park mobile unless the UX is truly ready","Avoid platform sprawl too early.",1,2
+
+"section","Product, Retention & Monetization","","",""
+"task","Choose a coherent business model","Monetization should match the content cadence you can sustain.",4,1
+"task","Evaluate premium base game plus case-pack DLC","Likely the best fit for the current structure.",4,2
+"task","Evaluate demo-to-premium funnel","Useful for Steam wishlists and conversions.",3,2
+"task","Avoid overcomplicated F2P systems early","Protect focus and product quality.",3,2
+"task","Add retention systems that fit the fantasy","Keep players coming back without cheapening the game.",3,1
+"task","Add streaks or detective career milestones","Reward consistent engagement.",2,2
+"task","Add daily and weekly challenge cadence","Good for retention and creator content.",3,2
+"task","Add achievements and mastery goals","Encourage replay and completionism.",3,1
+"task","Create achievement sets for perfect solves, no-hint runs, and streaks","Reward mastery, not grind.",3,2
+"task","Add a light progression economy","Use it to pace unlocks, not manipulate players.",2,1
+"task","Reward stars, medals, or rank points","Give the player a sense of advancement.",2,2
+"task","Use progression to unlock hard cases or cosmetic themes","Keep rewards meaningful but manageable.",2,2
+"task","Plan analytics before turning them on","Measure what matters to fun and retention.",3,1
+"task","Track case starts, case completions, and drop-off points","Find pacing issues.",3,2
+"task","Track wrong accusations and hint usage","Measure fairness and friction.",3,2
+"task","Review funnel data after each content drop","Iterate intentionally.",2,2
+"task","Test pricing and packaging","Treat the catalog like a product line.",2,1
+"task","Test base-game price positioning","Find the value sweet spot.",2,2
+"task","Design anthology pack sizes and themes","Package content in appealing chunks.",2,2
+"task","Explore deluxe edition or soundtrack/artbook upsells later","Only after the core game lands.",1,2
+
+"section","Marketing, Demo & Community","","",""
+"task","Build a store-ready marketing asset kit","Good store assets are part of the product.",4,1
+"task","Create capsule art and key art","Define the game visually for storefronts.",4,2
+"task","Capture strong screenshots","Show lineup, evidence, accusation, and result moments.",4,2
+"task","Outline a short trailer structure","Lead with fantasy, tension, and reveal.",3,2
+"task","Clarify the game’s pitch","Make the hook instantly understandable.",4,1
+"task","Write a one-line hook","Explain what the player does and why it’s cool.",4,2
+"task","Write a short store description","Focus on deduction fantasy and anthology appeal.",3,2
+"task","Write a longer store description","Sell the systems, tone, and replay value.",2,2
+"task","Create a demo strategy","A small polished demo could drive wishlists and feedback.",3,1
+"task","Package 2 to 3 excellent cases for demo play","Lead with your strongest material.",4,2
+"task","Add a post-demo feedback prompt","Capture reactions while fresh.",2,2
+"task","Build shareable result moments","Let players and creators spread the game for you.",3,1
+"task","Create a case-complete share card","Turn success into a brag-friendly artifact.",2,2
+"task","Improve result screens for screenshots","Make accusation outcomes highly shareable.",2,2
+"task","Start lightweight community-building","Grow interest before and during launch.",2,1
+"task","Set a devlog cadence","Share progress consistently, not constantly.",2,2
+"task","Plan Discord or subreddit presence","Give interested players somewhere to gather.",1,2
+"task","Publish a public roadmap summary","Build trust without overpromising.",1,2
+"task","Prepare a press and creator kit","Make coverage easier to say yes to.",2,1
+"task","Create a press page and contact template","Lower friction for outreach.",2,2
+"task","Package logos, screenshots, and key art cleanly","Have a ready-to-send media kit.",2,2
+
+"section","Repo, Docs & Housekeeping","","",""
+"task","Remove machine-specific local path assumptions","Primary target: case_workflow\\src\\case_workflow\\paths.py",4,1
+"task","Replace hardcoded model path defaults with safer onboarding docs","Avoid E: and I: assumptions where possible.",4,2
+"task","Audit docs and disabled scripts for absolute local paths","Relevant examples exist in Assets\\Editor\\README_QWEN_GENERATOR.md and disabled tooling.",3,2
+"task","Clean project metadata and template leftovers","Primary target: ProjectSettings\\ProjectSettings.asset",4,1
+"task","Replace template bundle/application identifiers","Make builds feel real and consistent.",4,2
+"task","Audit for leftover default names and template settings","Remove anything obviously placeholder.",3,2
+"task","Improve repo documentation structure","Make the project easier to understand and re-enter.",3,1
+"task","Write a fast onboarding guide","How to run Unity, the case pipeline, and the common workflows.",3,2
+"task","Write an architecture overview","Explain runtime flow and content pipeline at a glance.",3,2
+"task","Write a living folder map","Keep top-level structure intentional.",2,2
+"task","Clean up asset and content placement","Separate code, data, art, and generated content more clearly.",3,1
+"task","Move case assets into a dedicated data/content area","Reduce code-content mixing.",4,2
+"task","Create naming rules for case folders and assets","Make content easier to inspect and script against.",3,2
+"task","Archive deprecated or experimental assets cleanly","Reduce visual noise in the repo.",2,2
+"task","Add planning docs that keep future work sane","Turn ambition into manageable systems.",2,1
+"task","Write design pillars","Define what the game should always feel like.",2,2
+"task","Write a content bible","Define suspect, evidence, and explanation standards.",3,2
+"task","Write a roadmap document","Keep priorities visible.",2,2
+"task","Reduce brittle scene-name coupling","Current binding style is vulnerable to scene refactors.",4,1
+"task","Serialize more scene references","Use explicit links where practical.",4,2
+"task","Create a scene validation tool or checklist","Catch broken references before playtesting.",3,2
+"task","Prefabize repeated UI structures","Reduce duplicate scene objects and binding ambiguity.",3,2
+"task","Do a quality pass on shipped curated cases","Current curated set should be treated like premium content.",3,1
+"task","Review and rebalance CASE_009 through CASE_014","Tune clarity, difficulty spread, and explanation satisfaction.",3,2
+"task","Standardize explanation quality across all curated cases","Every ending should feel equally polished.",3,2
+"task","Eliminate remaining placeholder runtime text","Clean out any fallback copy before shipping.",3,2

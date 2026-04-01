@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d7eb3c794a57b14fa77815382270587, type: 3}
+  m_Name: CASE_015_Definition
+  m_EditorClassIdentifier: Assembly-CSharp::CaseDefinitionSO
+  caseId: CASE_015
+  caseTitle: The Indigo Armature Key
+  caseDescription: The brass key to North Quay Animation Workshop's locked armature
+    cage vanished after a sponsor-reel reshoot, and the overtime ledger disappeared
+    with it. Five night-shift crew members remained inside the miniature harbor stage,
+    but only one suspect survives the logic of the valid clue, the planted red herring,
+    and the neutral timing detail.
+  locationAddressOrBusiness: North Quay Animation Workshop
+  locationCity: Bristol
+  locationCountry: England
+  locationImage: {fileID: 21300000, guid: 184a2d2167904bf69bc8f95d117bf17a, type: 3}
+  featuredImage: {fileID: 21300000, guid: 01c71bf7bac84e4f9860f67f7a5d9fac, type: 3}
+  suspects:
+  - {fileID: 11400000, guid: 0bd2aa82cea141dba30237cffac7bd65, type: 2}
+  - {fileID: 11400000, guid: 5aa69f4f527f4b41ae458d243de0d74a, type: 2}
+  - {fileID: 11400000, guid: 0521a9468f3d4d2b9483d383ec778802, type: 2}
+  - {fileID: 11400000, guid: 76753bde68ad43febe35c5c0a38cd5bb, type: 2}
+  - {fileID: 11400000, guid: 3b1f64a49363469abccd61fd27090e62, type: 2}
+  evidence:
+  - {fileID: 11400000, guid: 03913904a2074680988c7c6c521e0bde, type: 2}
+  - {fileID: 11400000, guid: eb67da33a8014ecca382d5c0d1e88227, type: 2}
+  - {fileID: 11400000, guid: 35334294e9d94304aa13c3a27858f3df, type: 2}
+  guiltySuspectIndex: 2
+  verdictTitle: Case Conclusion
+  explanation: 'The guilty suspect is Safiya Noor, slot 3. The valid evidence is
+    Indigo Clay Thread, which places Safiya at the armature cage after the reshoot
+    call because the same indigo harbor clay used to mute the cage hasp is pressed
+    into the inner seam of her leather folio. Brass Grease Nick is the red herring:
+    it points toward Colin Reeve because he regularly services puppet joints and
+    the cage latch, so grease on his cuff comes from routine maintenance rather than
+    the theft. Exposure Slate Dust Arc is neutral evidence; it proves the sponsor
+    reshoot order changed minutes before lights-out and narrows the time window,
+    but it does not accuse anyone by itself. Safiya''s paperwork motive, her false
+    claim that she never left the booth, and the valid clay transfer make her the
+    only suspect consistent with the full case.'

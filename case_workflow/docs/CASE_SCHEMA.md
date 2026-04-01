@@ -22,6 +22,8 @@ This is the canonical JSON contract for generated cases.
     "city": "Montreal",
     "country": "Canada"
   },
+  "locationImageStem": "location_00001_",
+  "locationImagePromptBase": "...",
   "featuredImageStem": "featured_00001_",
   "featuredImagePromptBase": "...",
   "instruction": "...",
@@ -99,16 +101,31 @@ Required per evidence item:
 - `title`
 - `description`
 - `discoveryLocation`
+- `role` (`red_herring`, `valid`, or `neutral`)
+- `pointsToSuspectSlot` (`valid` and `red_herring` should point to a suspect slot; `neutral` should omit this or use `0`)
 - `imageStem`
 - `imagePromptBase`
+
+Required per case:
+
+- exactly one `red_herring` evidence item
+- exactly one `valid` evidence item
+- exactly one `neutral` evidence item
+
+`locationImagePromptBase` defines the suspect-lineup background art. It should suggest a believable floor plane and architectural depth so standing suspects feel grounded in the scene, and it must explicitly exclude people and characters.
 
 ## Canon And Quality Rules
 
 - One and only one true culprit.
 - One and only one red herring.
+- One evidence item should falsely implicate the wrong suspect.
+- One evidence item should correctly implicate the guilty suspect.
+- One evidence item should be neutral context that supports worldbuilding or timing without directly accusing anyone.
 - `explanation` should name the guilty suspect and guilty slot.
 - Evidence should form a coherent proof chain, not three near-duplicates of the same clue.
+- The player should still be able to discern the truth from the total information provided.
 - Image prompts should not depend on readable text.
+- Location image prompts must explicitly say `no people` and `no characters`; lineup backgrounds can never contain people.
 - Names should feel grounded and geographically plausible for the setting.
 - Location, institution, and suspect background details should agree with each other.
 - Suspects in the same case should not collapse into the same silhouette, accessories, or wardrobe language.

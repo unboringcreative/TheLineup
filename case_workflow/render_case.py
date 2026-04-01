@@ -183,6 +183,7 @@ def render_one(pipe: Flux2KleinPipeline, item: dict, output_dir: Path, seed: int
     with torch.inference_mode():
         result = pipe(
             prompt=item["prompt"],
+            negative_prompt_embeds=item.get("negative_prompt") or None,
             width=item["width"],
             height=item["height"],
             guidance_scale=guidance_scale,

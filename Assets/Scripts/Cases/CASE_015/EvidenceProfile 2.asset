@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6f08364790497b44845ca143098c02b, type: 3}
+  m_Name: EvidenceProfile 2
+  m_EditorClassIdentifier: Assembly-CSharp::EvidenceProfileSO
+  title: Indigo Clay Thread
+  description: A thin thread of indigo harbor-set clay is pressed into the inner
+    seam of Safiya's leather folio, matching the fresh clay used to mute the cage
+    hasp during the theft.
+  discoveryLocation: Safiya's Folio Inner Seam
+  evidenceRole: valid
+  pointsToSuspectSlot: 3
+  image: {fileID: 21300000, guid: 8e04fcab5c0d4376855b89a0cb1a00cb, type: 3}
