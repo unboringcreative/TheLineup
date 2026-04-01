@@ -24,6 +24,8 @@ public class CaseScreenController : MonoBehaviour
     public int selectedSuspectIndex = -1;
 
     private Text caseTitleText;
+    private Text suspectsTitleText;
+    private Text evidenceTitleText;
     private Text selectedSuspectText;
     private Text detailedInfoTitleText;
     private Text detailedInfoBodyText;
@@ -50,6 +52,7 @@ public class CaseScreenController : MonoBehaviour
     private GameObject mainMenuOverlay;
     private int verdictSelectionIndex = -1;
     private CaseDefinitionSO currentCaseData;
+    private Image suspectLineupBackgroundImage;
     private Color verdictDefaultColor;
     private bool verdictColorCached;
 
@@ -1170,6 +1173,7 @@ public class CaseScreenController : MonoBehaviour
         }
 
         currentCaseData = caseData;
+        ApplySuspectLineupBackground(caseData.locationImage != null ? caseData.locationImage : caseData.featuredImage);
 
         SetText(caseTitleText, caseData.caseTitle);
         SetText(verdictText, caseData.verdictTitle);
@@ -1246,6 +1250,10 @@ public class CaseScreenController : MonoBehaviour
         if (slotRoot == null)
             return;
 
+        Image slotBackground = slotRoot.GetComponent<Image>();
+        if (slotBackground != null)
+            slotBackground.color = new Color(0.09f, 0.11f, 0.13f, 0.82f);
+
         if (description != null)
             description.gameObject.SetActive(false);
 
@@ -1257,8 +1265,8 @@ public class CaseScreenController : MonoBehaviour
             rowLayout.childForceExpandWidth = false;
             rowLayout.childForceExpandHeight = false;
             rowLayout.childAlignment = TextAnchor.MiddleLeft;
-            rowLayout.spacing = 8f;
-            rowLayout.padding = new RectOffset(8, 8, 8, 8);
+            rowLayout.spacing = 14f;
+            rowLayout.padding = new RectOffset(14, 14, 10, 10);
         }
 
         RectTransform labelRect = label != null ? label.transform as RectTransform : null;
@@ -1274,8 +1282,10 @@ public class CaseScreenController : MonoBehaviour
 
         if (label != null)
         {
-            label.fontSize = 14;
+            label.fontSize = 18;
             label.alignment = TextAnchor.MiddleLeft;
+            label.fontStyle = FontStyle.Bold;
+            label.color = new Color(0.94f, 0.92f, 0.86f, 1f);
             label.horizontalOverflow = HorizontalWrapMode.Wrap;
             label.verticalOverflow = VerticalWrapMode.Overflow;
 
@@ -1295,7 +1305,7 @@ public class CaseScreenController : MonoBehaviour
         if (imageRect != null)
         {
             float editorScale = Mathf.Max(1f, Mathf.Max(imageRect.localScale.x, imageRect.localScale.y));
-            float thumbSize = 86f * editorScale;
+            float thumbSize = 104f * editorScale;
 
             imageRect.anchorMin = new Vector2(0.5f, 0.5f);
             imageRect.anchorMax = new Vector2(0.5f, 0.5f);
@@ -1419,24 +1429,12 @@ public class CaseScreenController : MonoBehaviour
 
     private void UpdateSelectionUI()
     {
-        string detailTitle = currentCaseData != null ? currentCaseData.caseTitle : "Suspect Dialogue";
-        string detailBody = currentCaseData != null && !string.IsNullOrWhiteSpace(currentCaseData.caseDescription)
-            ? currentCaseData.caseDescription
-            : "Interview a suspect to view dialogue details.";
+        string detailTitle = "Case File";
+        string detailBody = BuildCaseFileBody(currentCaseData);
 
         for (int i = 0; i < suspectViews.Length; i++)
         {
-            bool selected = i == selectedSuspectIndex;
             suspectViews[i].SetHighlight(false);
-            if (selected)
-            {
-                if (i < currentSuspects.Count && currentSuspects[i] != null)
-                {
-                    SuspectProfileSO suspect = currentSuspects[i];
-                    detailTitle = "Suspect Dialogue";
-                    detailBody = BuildSuspectDialoguePlaceholder(suspect);
-                }
-            }
         }
 
         SetText(selectedSuspectText, string.Empty);
@@ -1445,6 +1443,37 @@ public class CaseScreenController : MonoBehaviour
 
         if (confirmButton != null)
             confirmButton.interactable = currentCaseData != null;
+    }
+
+    private static string BuildCaseFileBody(CaseDefinitionSO caseData)
+    {
+        if (caseData == null)
+            return "Summary\nCase details unavailable.\n\nObjective\nInterview suspects, inspect the evidence, and make your accusation.";
+
+        string location = BuildCaseLocation(caseData);
+        string summary = string.IsNullOrWhiteSpace(caseData.caseDescription)
+            ? "Case summary unavailable."
+            : caseData.caseDescription.Trim();
+
+        return "Location\n" + location + "\n\n"
+             + "Objective\nInterview suspects, inspect the evidence, and accuse the one person who fits every clue.\n\n"
+             + "Brief\n" + summary;
+    }
+
+    private static string BuildCaseLocation(CaseDefinitionSO caseData)
+    {
+        if (caseData == null)
+            return "Unknown";
+
+        List<string> parts = new List<string>(3);
+        if (!string.IsNullOrWhiteSpace(caseData.locationAddressOrBusiness))
+            parts.Add(caseData.locationAddressOrBusiness.Trim());
+        if (!string.IsNullOrWhiteSpace(caseData.locationCity))
+            parts.Add(caseData.locationCity.Trim());
+        if (!string.IsNullOrWhiteSpace(caseData.locationCountry))
+            parts.Add(caseData.locationCountry.Trim());
+
+        return parts.Count > 0 ? string.Join("\n", parts) : "Unknown";
     }
 
         private static string BuildSuspectDialoguePlaceholder(SuspectProfileSO suspect)
@@ -1480,8 +1509,9 @@ public class CaseScreenController : MonoBehaviour
         SetText(caseTitleText, "CASE 001");
         SetText(verdictText, "Verdict");
         SetText(explanationText, "Result details appear here after accusation.");
-        SetText(detailedInfoTitleText, "Suspect Dialogue");
-        SetText(detailedInfoBodyText, "Interview transcript placeholder. Select a suspect to interview.");
+        SetText(detailedInfoTitleText, "Case File");
+        SetText(detailedInfoBodyText, BuildCaseFileBody(null));
+        ApplySuspectLineupBackground(null);
         currentSuspects.Clear();
 
         CloseInterviewPopup();
@@ -1505,9 +1535,12 @@ public class CaseScreenController : MonoBehaviour
     {
         Transform topBar = FindDeep(transform, "TopBar");
         Transform bottomBar = FindDeep(transform, "BottomBar");
+        Transform mainPanel = FindDeep(transform, "MainPanel");
         Transform detailedInfoPanel = FindDeep(transform, "DetailedInfoPanel");
 
         caseTitleText = topBar != null ? FindText(topBar, "CaseTitleText") : FindText("CaseTitleText");
+        suspectsTitleText = mainPanel != null ? FindText(mainPanel, "SuspectsTitleText") : FindText("SuspectsTitleText");
+        evidenceTitleText = FindText("EvidenceTitleText");
         selectedSuspectText = bottomBar != null ? FindText(bottomBar, "SelectedSuspectText") : FindText("SelectedSuspectText");
         detailedInfoTitleText = detailedInfoPanel != null ? FindText(detailedInfoPanel, "DetailedInfoTitleText") : null;
         detailedInfoBodyText = detailedInfoPanel != null ? FindText(detailedInfoPanel, "DetailedInfoBodyText") : null;
@@ -1566,6 +1599,8 @@ public class CaseScreenController : MonoBehaviour
 
         if (suspectGrid != null)
             NormalizeSuspectGridChildren(suspectGrid);
+
+        suspectLineupBackgroundImage = EnsureSuspectLineupBackground(suspectGrid);
 
         CleanupSuspectActionRow(suspectGrid);
 
@@ -1865,6 +1900,7 @@ public class CaseScreenController : MonoBehaviour
 #if UNITY_EDITOR
         if (!Application.isPlaying)
         {
+            ApplyScreenTheme();
             UnityEditor.EditorApplication.delayCall -= DelayedEnsureSuspectGridOneRow;
             UnityEditor.EditorApplication.delayCall += DelayedEnsureSuspectGridOneRow;
             return;
@@ -1872,6 +1908,7 @@ public class CaseScreenController : MonoBehaviour
 #endif
 
         EnsureSuspectGridOneRow();
+        ApplyScreenTheme();
     }
 
 #if UNITY_EDITOR
@@ -1881,8 +1918,260 @@ public class CaseScreenController : MonoBehaviour
             return;
 
         EnsureSuspectGridOneRow();
+        ApplyScreenTheme();
     }
 #endif
+
+    private void ApplyScreenTheme()
+    {
+        Transform topBar = FindDeep(transform, "TopBar");
+        Transform mainPanel = FindDeep(transform, "MainPanel");
+        Transform detailedInfoPanel = FindDeep(transform, "DetailedInfoPanel");
+        Transform evidencePanel = FindDeep(transform, "EvidencePanel");
+        Transform suspectGrid = FindDeep(transform, "SuspectGrid");
+        Transform suspectPanel = suspectGrid != null ? suspectGrid.parent : null;
+        Transform bottomBar = FindDeep(transform, "BottomBar");
+
+        ApplyTopBarTheme(topBar);
+        ApplyMainPanelLayout(mainPanel, suspectPanel, detailedInfoPanel);
+        ApplySuspectPanelTheme(suspectPanel, suspectGrid);
+        ApplyDetailedInfoTheme(detailedInfoPanel);
+        ApplyEvidencePanelTheme(evidencePanel);
+        ApplyBottomBarTheme(bottomBar);
+    }
+
+    private void ApplyTopBarTheme(Transform topBar)
+    {
+        RectTransform topBarRect = topBar as RectTransform;
+        if (topBarRect != null)
+        {
+            topBarRect.anchorMin = new Vector2(0.035f, 0.895f);
+            topBarRect.anchorMax = new Vector2(0.965f, 0.975f);
+            topBarRect.offsetMin = Vector2.zero;
+            topBarRect.offsetMax = Vector2.zero;
+        }
+
+        Image topBarImage = topBar != null ? topBar.GetComponent<Image>() : null;
+        if (topBarImage != null)
+            topBarImage.color = new Color(0.03f, 0.035f, 0.045f, 0.94f);
+
+        if (caseTitleText != null)
+        {
+            caseTitleText.fontSize = 34;
+            caseTitleText.fontStyle = FontStyle.Normal;
+            caseTitleText.color = new Color(0.98f, 0.95f, 0.88f, 1f);
+            caseTitleText.alignment = TextAnchor.MiddleLeft;
+
+            RectTransform titleRect = caseTitleText.transform as RectTransform;
+            if (titleRect != null)
+            {
+                titleRect.anchorMin = new Vector2(0f, 0f);
+                titleRect.anchorMax = new Vector2(0.55f, 1f);
+                titleRect.offsetMin = new Vector2(22f, 0f);
+                titleRect.offsetMax = new Vector2(-12f, 0f);
+            }
+        }
+
+        Button caseButton = openCaseSelectionButton != null ? openCaseSelectionButton : FindButton("OpenCaseSelectionButton");
+        Button menuButton = openMainMenuButton != null ? openMainMenuButton : FindButton("OpenMainMenuButton");
+        ApplyButtonTheme(caseButton, new Color(0.36f, 0.29f, 0.16f, 0.92f), new Color(0.98f, 0.95f, 0.86f, 1f), new Vector2(150f, 30f), 14);
+        ApplyButtonTheme(menuButton, new Color(0.16f, 0.19f, 0.24f, 0.95f), new Color(0.92f, 0.92f, 0.9f, 1f), new Vector2(104f, 30f), 14);
+    }
+
+    private void ApplyMainPanelLayout(Transform mainPanel, Transform suspectPanel, Transform detailedInfoPanel)
+    {
+        RectTransform mainRect = mainPanel as RectTransform;
+        if (mainRect != null)
+        {
+            mainRect.anchorMin = new Vector2(0.035f, 0.24f);
+            mainRect.anchorMax = new Vector2(0.965f, 0.885f);
+            mainRect.offsetMin = Vector2.zero;
+            mainRect.offsetMax = Vector2.zero;
+        }
+
+        RectTransform suspectRect = suspectPanel as RectTransform;
+        if (suspectRect != null)
+        {
+            suspectRect.anchorMin = new Vector2(0f, 0f);
+            suspectRect.anchorMax = new Vector2(0.75f, 1f);
+            suspectRect.offsetMin = Vector2.zero;
+            suspectRect.offsetMax = new Vector2(-18f, 0f);
+        }
+
+        RectTransform detailRect = detailedInfoPanel as RectTransform;
+        if (detailRect != null)
+        {
+            detailRect.anchorMin = new Vector2(0.775f, 0.03f);
+            detailRect.anchorMax = new Vector2(1f, 1f);
+            detailRect.offsetMin = Vector2.zero;
+            detailRect.offsetMax = Vector2.zero;
+        }
+    }
+
+    private void ApplySuspectPanelTheme(Transform suspectPanel, Transform suspectGrid)
+    {
+        Image panelImage = suspectPanel != null ? suspectPanel.GetComponent<Image>() : null;
+        if (panelImage != null)
+            panelImage.color = new Color(0.08f, 0.09f, 0.1f, 0.35f);
+
+        if (suspectsTitleText != null)
+        {
+            suspectsTitleText.text = "LINEUP";
+            suspectsTitleText.fontSize = 18;
+            suspectsTitleText.fontStyle = FontStyle.Bold;
+            suspectsTitleText.color = new Color(0.9f, 0.79f, 0.56f, 0.92f);
+            suspectsTitleText.alignment = TextAnchor.MiddleLeft;
+
+            RectTransform titleRect = suspectsTitleText.transform as RectTransform;
+            if (titleRect != null)
+            {
+                titleRect.anchorMin = new Vector2(0f, 1f);
+                titleRect.anchorMax = new Vector2(0f, 1f);
+                titleRect.pivot = new Vector2(0f, 1f);
+                titleRect.anchoredPosition = new Vector2(20f, -18f);
+                titleRect.sizeDelta = new Vector2(220f, 24f);
+            }
+        }
+
+        RectTransform gridRect = suspectGrid as RectTransform;
+        if (gridRect != null)
+        {
+            gridRect.anchorMin = new Vector2(0f, 0f);
+            gridRect.anchorMax = new Vector2(1f, 1f);
+            gridRect.offsetMin = new Vector2(10f, 12f);
+            gridRect.offsetMax = new Vector2(-10f, -44f);
+        }
+
+        if (suspectLineupBackgroundImage != null && suspectLineupBackgroundImage.sprite != null)
+            suspectLineupBackgroundImage.color = new Color(1f, 1f, 1f, 0.88f);
+    }
+
+    private void ApplyDetailedInfoTheme(Transform detailedInfoPanel)
+    {
+        Image panelImage = detailedInfoPanel != null ? detailedInfoPanel.GetComponent<Image>() : null;
+        if (panelImage != null)
+            panelImage.color = new Color(0.1f, 0.055f, 0.035f, 0.94f);
+
+        if (detailedInfoTitleText != null)
+        {
+            detailedInfoTitleText.fontSize = 24;
+            detailedInfoTitleText.fontStyle = FontStyle.Bold;
+            detailedInfoTitleText.color = new Color(0.98f, 0.93f, 0.84f, 1f);
+            detailedInfoTitleText.alignment = TextAnchor.UpperLeft;
+
+            RectTransform titleRect = detailedInfoTitleText.transform as RectTransform;
+            if (titleRect != null)
+            {
+                titleRect.anchorMin = new Vector2(0f, 1f);
+                titleRect.anchorMax = new Vector2(1f, 1f);
+                titleRect.offsetMin = new Vector2(18f, -54f);
+                titleRect.offsetMax = new Vector2(-18f, -14f);
+            }
+        }
+
+        if (detailedInfoBodyText != null)
+        {
+            detailedInfoBodyText.fontSize = 16;
+            detailedInfoBodyText.fontStyle = FontStyle.Normal;
+            detailedInfoBodyText.color = new Color(0.94f, 0.9f, 0.82f, 0.95f);
+            detailedInfoBodyText.alignment = TextAnchor.UpperLeft;
+            detailedInfoBodyText.lineSpacing = 1.15f;
+
+            RectTransform bodyRect = detailedInfoBodyText.transform as RectTransform;
+            if (bodyRect != null)
+            {
+                bodyRect.anchorMin = new Vector2(0f, 0f);
+                bodyRect.anchorMax = new Vector2(1f, 1f);
+                bodyRect.offsetMin = new Vector2(18f, 18f);
+                bodyRect.offsetMax = new Vector2(-18f, -74f);
+            }
+        }
+    }
+
+    private void ApplyEvidencePanelTheme(Transform evidencePanel)
+    {
+        RectTransform evidenceRect = evidencePanel as RectTransform;
+        if (evidenceRect != null)
+        {
+            evidenceRect.anchorMin = new Vector2(0.035f, 0.035f);
+            evidenceRect.anchorMax = new Vector2(0.73f, 0.205f);
+            evidenceRect.offsetMin = Vector2.zero;
+            evidenceRect.offsetMax = Vector2.zero;
+        }
+
+        Image panelImage = evidencePanel != null ? evidencePanel.GetComponent<Image>() : null;
+        if (panelImage != null)
+            panelImage.color = new Color(0.06f, 0.08f, 0.1f, 0.92f);
+
+        if (evidenceTitleText != null)
+        {
+            evidenceTitleText.fontSize = 16;
+            evidenceTitleText.fontStyle = FontStyle.Bold;
+            evidenceTitleText.color = new Color(0.88f, 0.78f, 0.58f, 1f);
+            evidenceTitleText.alignment = TextAnchor.UpperLeft;
+
+            RectTransform titleRect = evidenceTitleText.transform as RectTransform;
+            if (titleRect != null)
+            {
+                titleRect.anchorMin = new Vector2(0f, 1f);
+                titleRect.anchorMax = new Vector2(0f, 1f);
+                titleRect.pivot = new Vector2(0f, 1f);
+                titleRect.anchoredPosition = new Vector2(20f, -16f);
+                titleRect.sizeDelta = new Vector2(180f, 24f);
+            }
+        }
+    }
+
+    private void ApplyBottomBarTheme(Transform bottomBar)
+    {
+        RectTransform bottomRect = bottomBar as RectTransform;
+        if (bottomRect != null)
+        {
+            bottomRect.anchorMin = new Vector2(0.75f, 0.035f);
+            bottomRect.anchorMax = new Vector2(0.965f, 0.205f);
+            bottomRect.offsetMin = Vector2.zero;
+            bottomRect.offsetMax = Vector2.zero;
+        }
+
+        Image panelImage = bottomBar != null ? bottomBar.GetComponent<Image>() : null;
+        if (panelImage != null)
+            panelImage.color = new Color(0.07f, 0.09f, 0.11f, 0.94f);
+
+        if (confirmButton != null)
+            ApplyButtonTheme(confirmButton, new Color(0.53f, 0.38f, 0.17f, 0.98f), new Color(1f, 0.96f, 0.88f, 1f), new Vector2(210f, 56f), 18);
+    }
+
+    private static void ApplyButtonTheme(Button button, Color backgroundColor, Color textColor, Vector2 size, int fontSize)
+    {
+        if (button == null)
+            return;
+
+        RectTransform rect = button.transform as RectTransform;
+        if (rect != null && size.x > 0f && size.y > 0f)
+            rect.sizeDelta = size;
+
+        Image image = button.GetComponent<Image>();
+        if (image != null)
+            image.color = backgroundColor;
+
+        Text label = button.GetComponentInChildren<Text>(true);
+        if (label != null)
+        {
+            label.color = textColor;
+            label.fontSize = fontSize;
+            label.fontStyle = FontStyle.Bold;
+            label.alignment = TextAnchor.MiddleCenter;
+        }
+
+        ColorBlock colors = button.colors;
+        colors.normalColor = Color.white;
+        colors.highlightedColor = new Color(1f, 1f, 1f, 0.92f);
+        colors.pressedColor = new Color(0.86f, 0.86f, 0.86f, 0.9f);
+        colors.selectedColor = colors.highlightedColor;
+        colors.disabledColor = new Color(0.7f, 0.7f, 0.7f, 0.45f);
+        colors.colorMultiplier = 1f;
+        button.colors = colors;
+    }
 
     private static Transform FindDirectChild(Transform parent, string name)
     {
@@ -1933,6 +2222,63 @@ public class CaseScreenController : MonoBehaviour
 
         for (int i = 0; i < suspectViews.Length; i++)
             suspectViews[i].EnforcePortraitPlaceholderRatio(grid.cellSize);
+    }
+
+    private Image EnsureSuspectLineupBackground(Transform suspectGrid)
+    {
+        if (suspectGrid == null)
+            return null;
+
+        Transform container = suspectGrid.parent != null ? suspectGrid.parent : suspectGrid;
+        Transform existing = FindDirectChild(container, "LocationBackground");
+        GameObject backgroundGo;
+        if (existing != null)
+        {
+            backgroundGo = existing.gameObject;
+        }
+        else
+        {
+            backgroundGo = new GameObject("LocationBackground", typeof(RectTransform), typeof(CanvasRenderer), typeof(Image), typeof(LayoutElement));
+            RectTransform backgroundRect = backgroundGo.GetComponent<RectTransform>();
+            backgroundRect.SetParent(container, false);
+        }
+
+        Image backgroundImage = backgroundGo.GetComponent<Image>();
+        backgroundImage.raycastTarget = false;
+        backgroundImage.preserveAspect = false;
+        backgroundImage.type = Image.Type.Simple;
+
+        LayoutElement layout = backgroundGo.GetComponent<LayoutElement>();
+        if (layout != null)
+            layout.ignoreLayout = true;
+
+        RectTransform rect = backgroundGo.transform as RectTransform;
+        RectTransform targetRect = suspectGrid as RectTransform;
+        if (rect != null && targetRect != null)
+        {
+            rect.anchorMin = targetRect.anchorMin;
+            rect.anchorMax = targetRect.anchorMax;
+            rect.pivot = targetRect.pivot;
+            rect.anchoredPosition = targetRect.anchoredPosition;
+            rect.sizeDelta = targetRect.sizeDelta;
+            rect.offsetMin = targetRect.offsetMin;
+            rect.offsetMax = targetRect.offsetMax;
+        }
+
+        backgroundGo.transform.SetSiblingIndex(suspectGrid.GetSiblingIndex());
+        suspectGrid.SetSiblingIndex(backgroundGo.transform.GetSiblingIndex() + 1);
+        return backgroundImage;
+    }
+
+    private void ApplySuspectLineupBackground(Sprite sprite)
+    {
+        if (suspectLineupBackgroundImage == null)
+            return;
+
+        suspectLineupBackgroundImage.sprite = sprite;
+        suspectLineupBackgroundImage.color = sprite != null
+            ? new Color(1f, 1f, 1f, 0.72f)
+            : new Color(0f, 0f, 0f, 0f);
     }
 
     private void CleanupSuspectActionRow(Transform suspectGrid)
@@ -2184,7 +2530,7 @@ public class CaseScreenController : MonoBehaviour
 
             if (nameBackground != null)
             {
-                nameBackground.color = new Color(0.04f, 0.06f, 0.1f, 0.86f);
+                nameBackground.color = new Color(0.03f, 0.04f, 0.05f, 0.72f);
                 nameBackground.raycastTarget = false;
                 nameBackground.gameObject.SetActive(true);
             }
@@ -2207,8 +2553,8 @@ public class CaseScreenController : MonoBehaviour
                 buttonRect.anchorMin = new Vector2(0.5f, 0f);
                 buttonRect.anchorMax = new Vector2(0.5f, 0f);
                 buttonRect.pivot = new Vector2(0.5f, 0.5f);
-                buttonRect.sizeDelta = new Vector2(112f, 28f);
-                buttonRect.anchoredPosition = new Vector2(0f, 14f);
+                buttonRect.sizeDelta = new Vector2(120f, 30f);
+                buttonRect.anchoredPosition = new Vector2(0f, 16f);
             }
 
             if (selectButton != null)
@@ -2217,6 +2563,7 @@ public class CaseScreenController : MonoBehaviour
                 if (buttonLayout != null)
                     buttonLayout.ignoreLayout = false;
                 selectButton.gameObject.SetActive(true);
+                CaseScreenController.ApplyButtonTheme(selectButton, new Color(0.48f, 0.34f, 0.15f, 0.96f), new Color(0.98f, 0.95f, 0.86f, 1f), new Vector2(120f, 30f), 15);
             }
         }
 
