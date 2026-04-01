@@ -2012,12 +2012,12 @@ public class CaseScreenController : MonoBehaviour
     {
         Image panelImage = suspectPanel != null ? suspectPanel.GetComponent<Image>() : null;
         if (panelImage != null)
-            panelImage.color = new Color(0.08f, 0.09f, 0.1f, 0.35f);
+            panelImage.color = new Color(0.1f, 0.09f, 0.08f, 0.2f);
 
         if (suspectsTitleText != null)
         {
-            suspectsTitleText.text = "LINEUP";
-            suspectsTitleText.fontSize = 18;
+            suspectsTitleText.text = "Suspect Lineup";
+            suspectsTitleText.fontSize = 20;
             suspectsTitleText.fontStyle = FontStyle.Bold;
             suspectsTitleText.color = new Color(0.9f, 0.79f, 0.56f, 0.92f);
             suspectsTitleText.alignment = TextAnchor.MiddleLeft;
@@ -2028,8 +2028,8 @@ public class CaseScreenController : MonoBehaviour
                 titleRect.anchorMin = new Vector2(0f, 1f);
                 titleRect.anchorMax = new Vector2(0f, 1f);
                 titleRect.pivot = new Vector2(0f, 1f);
-                titleRect.anchoredPosition = new Vector2(20f, -18f);
-                titleRect.sizeDelta = new Vector2(220f, 24f);
+                titleRect.anchoredPosition = new Vector2(18f, -16f);
+                titleRect.sizeDelta = new Vector2(260f, 28f);
             }
         }
 
@@ -2054,7 +2054,7 @@ public class CaseScreenController : MonoBehaviour
 
         if (detailedInfoTitleText != null)
         {
-            detailedInfoTitleText.fontSize = 24;
+            detailedInfoTitleText.fontSize = 22;
             detailedInfoTitleText.fontStyle = FontStyle.Bold;
             detailedInfoTitleText.color = new Color(0.98f, 0.93f, 0.84f, 1f);
             detailedInfoTitleText.alignment = TextAnchor.UpperLeft;
@@ -2064,26 +2064,26 @@ public class CaseScreenController : MonoBehaviour
             {
                 titleRect.anchorMin = new Vector2(0f, 1f);
                 titleRect.anchorMax = new Vector2(1f, 1f);
-                titleRect.offsetMin = new Vector2(18f, -54f);
-                titleRect.offsetMax = new Vector2(-18f, -14f);
+                titleRect.offsetMin = new Vector2(20f, -56f);
+                titleRect.offsetMax = new Vector2(-22f, -16f);
             }
         }
 
         if (detailedInfoBodyText != null)
         {
-            detailedInfoBodyText.fontSize = 16;
+            detailedInfoBodyText.fontSize = 15;
             detailedInfoBodyText.fontStyle = FontStyle.Normal;
             detailedInfoBodyText.color = new Color(0.94f, 0.9f, 0.82f, 0.95f);
             detailedInfoBodyText.alignment = TextAnchor.UpperLeft;
-            detailedInfoBodyText.lineSpacing = 1.15f;
+            detailedInfoBodyText.lineSpacing = 1.22f;
 
             RectTransform bodyRect = detailedInfoBodyText.transform as RectTransform;
             if (bodyRect != null)
             {
                 bodyRect.anchorMin = new Vector2(0f, 0f);
                 bodyRect.anchorMax = new Vector2(1f, 1f);
-                bodyRect.offsetMin = new Vector2(18f, 18f);
-                bodyRect.offsetMax = new Vector2(-18f, -74f);
+                bodyRect.offsetMin = new Vector2(20f, 20f);
+                bodyRect.offsetMax = new Vector2(-24f, -76f);
             }
         }
     }
@@ -2105,6 +2105,7 @@ public class CaseScreenController : MonoBehaviour
 
         if (evidenceTitleText != null)
         {
+            evidenceTitleText.text = "Evidence";
             evidenceTitleText.fontSize = 16;
             evidenceTitleText.fontStyle = FontStyle.Bold;
             evidenceTitleText.color = new Color(0.88f, 0.78f, 0.58f, 1f);
@@ -2115,8 +2116,8 @@ public class CaseScreenController : MonoBehaviour
             {
                 titleRect.anchorMin = new Vector2(0f, 1f);
                 titleRect.anchorMax = new Vector2(0f, 1f);
-                titleRect.pivot = new Vector2(0f, 1f);
-                titleRect.anchoredPosition = new Vector2(20f, -16f);
+                titleRect.pivot = new Vector2(0f, 0f);
+                titleRect.anchoredPosition = new Vector2(18f, 10f);
                 titleRect.sizeDelta = new Vector2(180f, 24f);
             }
         }
@@ -2127,8 +2128,8 @@ public class CaseScreenController : MonoBehaviour
         RectTransform bottomRect = bottomBar as RectTransform;
         if (bottomRect != null)
         {
-            bottomRect.anchorMin = new Vector2(0.75f, 0.035f);
-            bottomRect.anchorMax = new Vector2(0.965f, 0.205f);
+            bottomRect.anchorMin = new Vector2(0.75f, 0.055f);
+            bottomRect.anchorMax = new Vector2(0.965f, 0.17f);
             bottomRect.offsetMin = Vector2.zero;
             bottomRect.offsetMax = Vector2.zero;
         }
@@ -2200,7 +2201,7 @@ public class CaseScreenController : MonoBehaviour
 
         grid.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
         grid.constraintCount = SuspectCount;
-        grid.spacing = new Vector2(8f, 8f);
+        grid.spacing = new Vector2(0f, 8f);
         grid.childAlignment = TextAnchor.LowerCenter;
         grid.padding = new RectOffset(8, 8, 8, 8);
 
